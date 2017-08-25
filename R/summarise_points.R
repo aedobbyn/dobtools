@@ -9,22 +9,32 @@
 #' @examples
 #' summarise_points()
 
-my_df <- as.data.frame(list(points = seq(1, 10, by = 2),
+library(tidyverse)
+lowercase_df <- as.data.frame(list(points = seq(1, 10, by = 2),
                             billed = c("Yes", "No", "No", "Yes", "Yes")))
 
+
+uppercase_df <- lowercase_df %>%
+  rename(
+    Points = points,
+    `Billed?` = billed
+  )
+
+
+
 summarise_points <- function(df, lowercase = TRUE, ...) {
+  browser()
 
   if(lowercase == TRUE) {
     condition <- "billed"
     # pts <- "points"
   } else {
-    condition <- `Billed?`
+    condition <- "Billed?"
     # pts <- `Points`
   }
-  browser()
 
   point_summary <- df %>%
-    summarise_(
+    summarise(
       Billed = sum(Points[condition == "Yes"], na.rm = TRUE),
       Unbilled = sum(Points[condition == "No"], na.rm = TRUE),
       Total = sum(Points, na.rm = TRUE)
@@ -34,5 +44,8 @@ summarise_points <- function(df, lowercase = TRUE, ...) {
 }
 
 
-summarise_points(my_df)
+summarise_points(lowercase_df)
+
+summarise_points(uppercase_df, lowercase = FALSE)
+
 
