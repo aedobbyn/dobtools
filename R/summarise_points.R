@@ -1,4 +1,4 @@
-#' Simple Capitalization
+#' Trello Point Summary
 #'
 #' Summarise billed and unbilled points in a dataframe.
 #' @param df A datafame
@@ -7,16 +7,32 @@
 #' @keywords summarise
 #' @export
 #' @examples
-#' simple_cap()
+#' summarise_points()
 
+my_df <- as.data.frame(list(points = seq(1, 10, by = 2),
+                            billed = c("Yes", "No", "No", "Yes", "Yes")))
 
-summarise_points <- function(df, condition = "billed", ...) {
-  point_summary <- this_proj_df %>%
-    summarise(
-      Billed = sum(points[condition == "Yes"], na.rm = TRUE),
-      Unbilled = sum(points[condition == "No"], na.rm = TRUE),
-      Total = sum(points, na.rm = TRUE)
+summarise_points <- function(df, lowercase = TRUE, ...) {
+
+  if(lowercase == TRUE) {
+    condition <- "billed"
+    # pts <- "points"
+  } else {
+    condition <- `Billed?`
+    # pts <- `Points`
+  }
+  browser()
+
+  point_summary <- df %>%
+    summarise_(
+      Billed = sum(Points[condition == "Yes"], na.rm = TRUE),
+      Unbilled = sum(Points[condition == "No"], na.rm = TRUE),
+      Total = sum(Points, na.rm = TRUE)
     )
 
   return(point_summary)
 }
+
+
+summarise_points(my_df)
+
