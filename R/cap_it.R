@@ -1,35 +1,41 @@
+#' Cap It
+#'
+#' Capitalize a vector or dataframe using one of the apply or purrr functions.
+#' @param i A vector or dataframe.
+#' @keywords capitalize
+#' @export
+#' @examples
+#' pre_cap_vec <- c("an all", "lowercase_string", "we.want", "to capitalize")
+#' capped_vec <- pre_cap %>% map_chr(cap_it)
+#'
+#' pre_cap_df <- list("another all" = c("blah_blah", "blah"),
+#'                    "lowercase.dataframe" = c(1, 4),
+#'                    "to.cap" = c("BLAMO", "blam.o")) %>% as_tibble()
+#'
+#'
+#' first_col <- pre_cap_df[[1]] %>% map_chr(cap_it)
+#' second_col <- pre_cap_df[[2]] %>% map_chr(cap_it) # Numeric column coerced from numeric to character
+#'
+#' # Capitalize all character elements of dataframe and column names
+#' capped_df <- pre_cap_df %>% map(cap_it) %>% as_tibble()  # Here, not coerced
+#' names(capped_df) <- names(pre_cap_df) %>% map(cap_it) %>% as_vector()
 
 
-cap_it <- function(i, ...) {
+cap_it <- function(e, ...) {
 
-  if(is.character(i)) {
-    if (grepl(pattern = "_", x = i) == TRUE) {
-      i <- simple_cap(gsub(x = i, pattern = "_", replacement = " "))
-    } else if (grepl(pattern = "\\.", x = i) == TRUE) {
-      i <- simple_cap(gsub(x = i, pattern = "\\.", replacement = " "))
+  if(is.character(e)) {
+    if (grepl(pattern = "_", e = e) == TRUE) {
+      e <- simple_cap(gsub(e = e, pattern = "_", replacement = " "))
+    } else if (grepl(pattern = "\\.", e = e) == TRUE) {
+      e <- simple_cap(gsub(e = e, pattern = "\\.", replacement = " "))
     } else {
-      i <- Hmisc::capitalize(i)
+      e <- Hmisc::capitalize(e)
     }
   } else {
-    right_class <- class(i)
-    i <- as(i, !!right_class)
+    e
   }
+
 }
 
 
-pre_cap_vec <- c("an all", "lowercase_string", "we.want", "to capitalize")
-
-capped_vec <- pre_cap %>% map_chr(cap_it)
-capped_vec
-
-pre_cap_df <- list("another all" = c("blah_blah", "blah"),
-                   "lowercase.dataframe" = c(1, 4),
-                   "to.cap" = c("BLAMO", "blam.o")) %>% as_tibble()
-
-
-first_col <- pre_cap_df[[1]] %>% map_chr(cap_it)
-
-second_col <- pre_cap_df[[2]] %>% map_chr(cap_it)
-
-capped_df <- pre_cap_df %>% map_df(cap_it)
 
