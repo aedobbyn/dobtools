@@ -7,22 +7,33 @@
 #' @examples
 #' capitalize_this("ibu")
 
-capitalize_this <- function(df, ...) {
-  out <- vector()
-  for (i in names(df)) {
-    if (i == "abv") {
-      i <- "ABV"
-    } else if (i == "ibu") {
-      i <- "IBU"
-    } else if (i == "srm") {
-      i <- "SRM"
-    } else if (grepl(pattern = "_", x = i) == TRUE) {
+capitalize_df <- function(df, ...) {
+  df_names <- names(df)
+
+  # for (i in seq_along(df_names)) {
+  #   if (grepl(pattern = "_", x = i) == TRUE) {
+  #     df[, i] <- simple_cap(gsub(x = df[, i], pattern = "_", replacement = " "))
+  #   } else if (grepl(pattern = ".", x = df[, i]) == TRUE) {
+  #     df[, i] <- simple_cap(gsub(x = df[, i], pattern = "\\.", replacement = " "))
+  #   } else {
+  #     df[, i] <- Hmisc::capitalize(df[, i])
+  #   }
+  # }
+
+  names_out <- vector()
+
+  for (i in df_names) {
+    if (grepl(pattern = "_", x = i) == TRUE) {
       i <- simple_cap(gsub(x = i, pattern = "_", replacement = " "))
+    } else if (grepl(pattern = ".", x = i) == TRUE) {
+      i <- simple_cap(gsub(x = i, pattern = "\\.", replacement = " "))
     } else {
-      i <- capitalize(i)
+      i <- Hmisc::capitalize(i)
     }
-    out <- c(out, i)
+    names_out <- c(names_out, i)
   }
-  names(df) <- out
-  df
+
+  names(df) <- names_out
+
+  return(df)
 }
