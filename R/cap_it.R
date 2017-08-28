@@ -24,10 +24,10 @@
 cap_it <- function(e, ...) {
 
   if(is.character(e)) {
-    if (grepl(pattern = "_", e = e) == TRUE) {
-      e <- simple_cap(gsub(e = e, pattern = "_", replacement = " "))
-    } else if (grepl(pattern = "\\.", e = e) == TRUE) {
-      e <- simple_cap(gsub(e = e, pattern = "\\.", replacement = " "))
+    if (grepl(pattern = "_", x = e) == TRUE) {
+      e <- simple_cap(gsub(x = e, pattern = "_", replacement = " "))
+    } else if (grepl(pattern = "\\.", x = e) == TRUE) {
+      e <- simple_cap(gsub(x = e, pattern = "\\.", replacement = " "))
     } else {
       e <- Hmisc::capitalize(e)
     }
