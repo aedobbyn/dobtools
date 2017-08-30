@@ -8,17 +8,6 @@
 #' capitalize_this("ibu")
 
 capitalize_df <- function(df, ...) {
-  df_names <- names(df)
-
-  # for (i in seq_along(df_names)) {
-  #   if (grepl(pattern = "_", x = i) == TRUE) {
-  #     df[, i] <- simple_cap(gsub(x = df[, i], pattern = "_", replacement = " "))
-  #   } else if (grepl(pattern = ".", x = df[, i]) == TRUE) {
-  #     df[, i] <- simple_cap(gsub(x = df[, i], pattern = "\\.", replacement = " "))
-  #   } else {
-  #     df[, i] <- Hmisc::capitalize(df[, i])
-  #   }
-  # }
 
   names_out <- vector()
 
