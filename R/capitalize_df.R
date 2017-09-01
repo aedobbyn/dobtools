@@ -1,17 +1,18 @@
-#' Beer Caps
+#' Capitalize Dataframe Columns
 #'
-#' Capitalize the column names in a beer dataframe.
+#' Capitalize the column names in a dataframe.
+#' Somewhat deprecated in favor of cap_it()
 #' @param df Any dataframe.
 #' @keywords capitalize
 #' @export
 #' @examples
-#' capitalize_this("ibu")
+#' capitalize_df(iris)
 
 capitalize_df <- function(df, ...) {
 
   names_out <- vector()
 
-  for (i in df_names) {
+  for (i in names(df)) {
     if (grepl(pattern = "_", x = i) == TRUE) {
       i <- simple_cap(gsub(x = i, pattern = "_", replacement = " "))
     } else if (grepl(pattern = ".", x = i) == TRUE) {
