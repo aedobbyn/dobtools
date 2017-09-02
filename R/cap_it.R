@@ -1,7 +1,7 @@
 #' Cap It
 #'
 #' Capitalize a vector or dataframe using one of the apply or purrr functions.
-#' @param i A vector or dataframe.
+#' @param e A vector or dataframe.
 #' @keywords capitalize
 #' @export
 #' @examples
