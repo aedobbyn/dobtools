@@ -9,7 +9,6 @@
 #' @keywords zero
 #' @export
 #' @examples
-#' library(tidyverse)
 #' sample_df <- list(a = 1:3, b = letters[1:3], c = c(NA, "foo", "bar")) %>% as_tibble()
 #' cols_to_zero <- c("b", "c")
 #' na_to_zero(sample_df, cols_to_zero)

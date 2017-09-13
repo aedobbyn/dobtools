@@ -3,6 +3,7 @@
 #' Capitalize a vector or dataframe using one of the apply or purrr functions.
 #' @param e A vector or dataframe.
 #' @keywords capitalize
+#' @import Hmisc
 #' @export
 #' @examples
 #' pre_cap_vec <- c("an all", "lowercase_string", "we.want", "to capitalize")

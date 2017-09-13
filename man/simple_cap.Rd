@@ -7,12 +7,12 @@
 simple_cap(x)
 }
 \arguments{
-\item{x}{Any vector}
+\item{x}{A character vector}
 }
 \description{
-Capitalize a vector of words.
+Capitalize the first letter in every word given a vector of words.
 }
 \examples{
-simple_cap()
+simple_cap("goodbye lowercase")
 }
 \keyword{capitalize}

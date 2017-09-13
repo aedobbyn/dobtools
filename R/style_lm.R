@@ -6,7 +6,6 @@
 #' @keywords regression
 #' @export
 #' @examples
-#' library(boom)
 #' iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) %>% summary() %>% broom::tidy()
 #' style_lm(iris_lm)
 

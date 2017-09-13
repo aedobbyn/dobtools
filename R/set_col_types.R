@@ -11,8 +11,6 @@
 #' @keywords column types
 #' @export
 #' @examples
-#' library(tidyverse)
-#' library(stringr)
 #' my_df <- as.data.frame(list(some = 1:5, column = Sys.Date() + 1:5,
 #'                             types = letters[5:9],
 #'                             to = c("good", "bad", "ugly", "other", "NA"),
@@ -31,7 +29,6 @@ set_col_types <- function(df, fac_regex = "", num_regex = "", date_regex = "",
                           char_regex = "", ...) {
 
   for(col_name in names(df)) {
-    # browser()
       # Factor
     if (fac_regex != "" & grepl(fac_regex, col_name) == TRUE) {
       df[[col_name]] <- factor(df[[col_name]])
