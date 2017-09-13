@@ -2,6 +2,7 @@
 
 export(cap_it)
 export(capitalize_df)
+export(make_hist)
 export(na_to_zero)
 export(prep_clusters)
 export(set_col_types)
@@ -11,3 +12,4 @@ export(summarise_points)
 export(uncap_it)
 import(Hmisc)
 import(stringr)
+import(tidyverse)

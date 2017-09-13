@@ -10,7 +10,8 @@ uncap_it(e, ...)
 \item{e}{A vector or dataframe.}
 }
 \description{
-Uncapitalize a vector or dataframe using one of the apply or purrr functions.
+Uncapitalize a vector or dataframe (usually the column names) and replace spaces
+with underscores using one of the apply or purrr functions.
 }
 \examples{
 
