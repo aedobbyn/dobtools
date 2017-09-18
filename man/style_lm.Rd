@@ -2,7 +2,7 @@
 % Please edit documentation in R/style_lm.R
 \name{style_lm}
 \alias{style_lm}
-\title{Trello Point Summary}
+\title{Style a Regression Model Output}
 \usage{
 style_lm(tidied_lm)
 }
@@ -10,8 +10,9 @@ style_lm(tidied_lm)
 \item{tidied_lm}{A tidied regression summary.}
 }
 \description{
-Capitalize the result of a tidied regression.
+Capitalize and round the result of a tidied regression.
 Remove the Intercept term and Statistic column, capitalize all terms and names.
+Round all numbers to the thousandths.
 }
 \examples{
 iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) \%>\% summary() \%>\% broom::tidy()

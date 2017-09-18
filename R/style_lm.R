@@ -1,7 +1,8 @@
-#' Trello Point Summary
+#' Style a Regression Model Output
 #'
-#' Capitalize the result of a tidied regression.
+#' Capitalize and round the result of a tidied regression.
 #' Remove the Intercept term and Statistic column, capitalize all terms and names.
+#' Round all numbers to the thousandths.
 #' @param tidied_lm A tidied regression summary.
 #' @keywords regression
 #' @export
