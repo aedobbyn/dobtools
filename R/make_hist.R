@@ -10,7 +10,7 @@
 #' make_hist(mtcars, "carb")
 
 
-make_hist <- function(d, var) {
+make_hist <- function(d, var, ...) {
   tabl <- d %>%
     count_(var);
   ggplot(d) + geom_bar(aes_string(var), stat = "count") + theme_minimal() +

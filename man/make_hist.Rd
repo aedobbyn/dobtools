@@ -4,7 +4,7 @@
 \alias{make_hist}
 \title{Make a Histogram of a Variable}
 \usage{
-make_hist(d, var)
+make_hist(d, var, ...)
 }
 \arguments{
 \item{d}{A dataframe.}
