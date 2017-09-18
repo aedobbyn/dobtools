@@ -1,10 +1,10 @@
 #' Style glm or lm
 #'
 #' Style a model output depending on whether it's a linear model or generalized linear model.
-#' @param d A dataframe.
-#' @param var The quoted variable name you want to see a histogram of.
-#' @keywords capitalize
+#' @param m The output (not summarized) of a generalized linear model (glm) or linear model (lm).
+#' @keywords style
 #' @import tidyverse
+#' broom
 #' @export
 #' @examples
 #' mt_lm <- lm(mpg ~ hp, data = mtcars)

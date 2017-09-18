@@ -16,7 +16,8 @@ style_lm <- function(tidied_lm) {
   styled <- styled %>% capitalize_df() %>%
     rename(
       Variable = Term
-    )
+    ) %>%
+    map_if(is.numeric, round, digits = 3) %>% as_tibble()
 
   row.names(styled) <- NULL
 

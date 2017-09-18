@@ -7,9 +7,7 @@
 style_mod(m)
 }
 \arguments{
-\item{d}{A dataframe.}
-
-\item{var}{The quoted variable name you want to see a histogram of.}
+\item{m}{The output (not summarized) of a generalized linear model (glm) or linear model (lm).}
 }
 \description{
 Style a model output depending on whether it's a linear model or generalized linear model.
@@ -21,4 +19,4 @@ mt_lm \%>\% style_mod()
 iris_glm <- glm(Species ~ Sepal.Width, data = iris, family = binomial)
 iris_glm \%>\% style_mod()
 }
-\keyword{capitalize}
+\keyword{style}
