@@ -4,7 +4,7 @@
 \alias{style_mod}
 \title{Style glm or lm}
 \usage{
-style_mod(m)
+style_mod(m, add_commas = FALSE)
 }
 \arguments{
 \item{m}{The output (not summarized) of a generalized linear model (glm) or linear model (lm).}

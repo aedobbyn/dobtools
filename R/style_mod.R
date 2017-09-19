@@ -13,13 +13,13 @@
 #' iris_glm <- glm(Species ~ Sepal.Width, data = iris, family = binomial)
 #' iris_glm %>% style_mod()
 
-style_mod <- function(m) {
+style_mod <- function(m, add_commas = FALSE) {
   if(grepl("glm", summary(m)$call[1])) {
     summary(m)$coefficients %>% broom::tidy() %>%
       rename(term = `.rownames`,
-             `p Value` = `Pr...z..`) %>% style_lm()  # Term renamed Variable in
+             `p Value` = `Pr...z..`) %>% style_lm(add_commas = add_commas)  # Term renamed Variable in
   } else {
-    summary(m) %>% broom::tidy() %>% style_lm()
+    summary(m) %>% broom::tidy() %>% style_lm(add_commas = add_commas)
   }
 }
 
