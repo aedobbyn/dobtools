@@ -4,7 +4,7 @@
 \alias{style_lm}
 \title{Style a Regression Model Output}
 \usage{
-style_lm(tidied_lm)
+style_lm(tidied_lm, add_commas = FALSE)
 }
 \arguments{
 \item{tidied_lm}{A tidied regression summary.}
@@ -16,6 +16,7 @@ Round all numbers to the thousandths.
 }
 \examples{
 iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) \%>\% summary() \%>\% broom::tidy()
-style_lm(iris_lm)
+iris_lm[2, 3] <- 1234567
+style_lm(iris_lm, add_commas = TRUE)
 }
 \keyword{regression}

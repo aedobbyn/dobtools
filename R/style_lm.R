@@ -8,17 +8,18 @@
 #' @export
 #' @examples
 #' iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) %>% summary() %>% broom::tidy()
-#' style_lm(iris_lm)
+#' iris_lm[2, 3] <- 1234567
+#' style_lm(iris_lm, add_commas = TRUE)
 
-style_lm <- function(tidied_lm) {
+
+style_lm <- function(tidied_lm, add_commas = FALSE) {
   styled <- tidied_lm[-1, -4]  # Remove (Intercept) row and statistic column
   styled$term <- styled$term %>% map(dobtools::cap_it) %>% as_vector()
   names(styled) <- names(styled) %>% map(dobtools::cap_it) %>% as_vector()
   styled <- styled %>% capitalize_df() %>%
     rename(
       Variable = Term
-    ) %>%
-    map_if(is.numeric, round, digits = 3) %>% as_tibble()
+    ) %>% style_numeric(add_commas = add_commas)
 
   row.names(styled) <- NULL
 
