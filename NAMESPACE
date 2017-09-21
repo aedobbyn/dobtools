@@ -3,6 +3,7 @@
 export(cap_df)
 export(cap_it)
 export(capitalize_df)
+export(collapse_strings)
 export(make_hist)
 export(na_to_zero)
 export(prep_clusters)
