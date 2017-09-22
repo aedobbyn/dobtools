@@ -4,7 +4,7 @@
 \alias{style_numeric}
 \title{Style Numeric}
 \usage{
-style_numeric(df, digits = 3, add_commas = FALSE)
+style_numeric(df, digits = 3, add_commas = FALSE, dont_add_commas = NULL)
 }
 \arguments{
 \item{df}{A dataframe.}
@@ -12,9 +12,13 @@ style_numeric(df, digits = 3, add_commas = FALSE)
 \item{digits}{The number of digits to round decimals to.}
 
 \item{add_commas}{If TRUE, add commas in between 1000s.}
+
+\item{dont_add_commas}{A character vector of columns that should not have commas added,
+if add_commas is TRUE.}
 }
 \description{
-Take a dataframe, round the digits to the thousandths, and optionally add commas.
+Take a dataframe, round the digits to the thousandths, and optionally add commas (except
+to year columns).
 }
 \examples{
 iris_2 <- iris \%>\% as_tibble()
