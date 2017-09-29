@@ -11,6 +11,9 @@ LazyData: true
 RoxygenNote: 6.0.1.9000
 Imports: 
     Hmisc, 
+    tibble,
     tidyverse,
     stringr,
-    lubridate
+    lubridate,
+    ranger,
+    scales

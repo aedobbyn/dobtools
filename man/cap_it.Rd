@@ -13,19 +13,21 @@ cap_it(e, ...)
 Capitalize a vector or dataframe using one of the apply or purrr functions.
 }
 \examples{
+library(tidyverse)
+library(Hmisc)
 pre_cap_vec <- c("an all", "lowercase_string", "we.want", "to capitalize")
 capped_vec <- pre_cap \%>\% map_chr(cap_it)
 
 pre_cap_df <- list("another all" = c("blah_blah", "blah"),
                    "lowercase.dataframe" = c(1, 4),
-                   "to.cap" = c("BLAMO", "blam.o")) \%>\% as_tibble()
+                   "to.cap" = c("BLAMO", "blam.o")) \%>\% data.frame()
 
 
 first_col <- pre_cap_df[[1]] \%>\% map_chr(cap_it)
 second_col <- pre_cap_df[[2]] \%>\% map_chr(cap_it) # Numeric column coerced from numeric to character
 
 # Capitalize all character elements of dataframe and column names
-capped_df <- pre_cap_df \%>\% map(cap_it) \%>\% as_tibble()  # Here, not coerced
+capped_df <- pre_cap_df \%>\% map(cap_it) \%>\% data.frame()  # Here, not coerced
 names(capped_df) <- names(pre_cap_df) \%>\% map(cap_it) \%>\% as_vector()
 }
 \keyword{capitalize}
