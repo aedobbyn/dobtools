@@ -1,25 +1,25 @@
 #' Replace Names
 #'
 #' Replace a vector of column names with another vector
-#' @param orig A vector of names to replace
-#' @param new The column name of the ref_df vector serving as the new names
+#' @param vec Vector, some or all of which you want to replace
+#' @param to_replace Subset of vec that you want to replace
+#' @param new Replacements for to_replace
 #' @keywords names
 #' @import tidyverse
 #' @export
 #' @examples
 #'
-#' replacement_names <- c("fee", "fi", "fo", "fum", "foo")
-#' names(iris) %>% replace_colnames(replacement_names)
+#' names_to_replace <- names(iris)[1:3]
+#' replacement_names <- c("fee", "fi", "fo")
+#' replace_names(c("foo", names(iris), "bar"), names_to_replace, replacement_names)
 
-replace_names <- function(orig, new) {
+replace_names <- function(vec, to_replace, new) {
 
-  ref_df <- cbind(orig = orig, new = new) %>% as_tibble()
-
-  vec <- orig
+  ref_df <- cbind(to_replace = to_replace, new = new) %>% as_tibble()
 
   for (i in seq_along(vec)) {
-    if (vec[i] %in% ref_df$orig) {
-      j <- which(ref_df$orig==vec[i])
+    if (vec[i] %in% ref_df$to_replace) {
+      j <- which(ref_df$to_replace==vec[i])
       vec[i] <- ref_df$new[j]
     } else {
       vec[i] <- vec[i]
