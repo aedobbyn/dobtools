@@ -5,6 +5,7 @@
 #' @keywords capitalize
 #' @import Hmisc
 #' @import tidyverse
+#' @export
 #' @examples
 #' library(tidyverse)
 #' library(Hmisc)
@@ -22,7 +23,6 @@
 #' # Capitalize all character elements of dataframe and column names
 #' capped_df <- pre_cap_df %>% map(cap_it) %>% data.frame()  # Here, not coerced
 #' names(capped_df) <- names(pre_cap_df) %>% map(cap_it) %>% as_vector()
-#' @export
 
 cap_it <- function(e, ...) {
 

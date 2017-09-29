@@ -16,8 +16,6 @@ Given a random forest model, extract the importance coefficient and percent.
 }
 \examples{
 
-library(ranger)
-library(tidyverse)
 iris_rf <- ranger::ranger(Species ~ ., data = iris, importance = "impurity")
 iris_rf \%>\% get_rf_importance()
 }

@@ -2,28 +2,21 @@
 % Please edit documentation in R/replace_names.R
 \name{replace_colnames}
 \alias{replace_colnames}
-\title{Replace Column Names}
+\title{Replace Names}
 \usage{
-replace_colnames(vec, ref_df, orig, new)
+replace_colnames(orig, new)
 }
 \arguments{
-\item{vec}{A vector of names to replace}
-
-\item{ref_df}{A reference dataframe that ties the vector of names to replace to its replacements}
+\item{orig}{A vector of names to replace}
 
 \item{new}{The column name of the ref_df vector serving as the new names}
-
-\item{orig_names}{The column name of the ref_df vector serving as the original names}
 }
 \description{
 Replace a vector of column names with another vector
 }
 \examples{
 
-original_names <- names(iris)
 replacement_names <- c("fee", "fi", "fo", "fum", "foo")
-name_df <- cbind(original_names, replacement_names) \%>\% as_tibble()
-
-names(iris) \%>\% replace_colnames(name_df, "original_names", "replacement_names")
+names(iris) \%>\% replace_colnames(replacement_names)
 }
 \keyword{names}
