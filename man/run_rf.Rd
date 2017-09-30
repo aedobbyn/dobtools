@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_rf.R
 \name{run_rf}
 \alias{run_rf}
-\title{Prepare a Random Forest model}
+\title{Run a Random Forest model}
 \usage{
 run_rf(data, predictor_vars, outcome_var, n_trees = 500, prob = FALSE)
 }
@@ -11,10 +11,10 @@ run_rf(data, predictor_vars, outcome_var, n_trees = 500, prob = FALSE)
 
 \item{outcome_var}{A single outcome variable. Factor or numeric.}
 
-\item{prob}{Probability or response outcome? If true, outcome variable must be a factor.}
+\item{prob}{Probability or response outcome? If TRUE, outcome variable must be a factor.}
 }
 \description{
-Given a random forest model, extract the importance coefficient and percent.
+Prepare and run a random forest model.
 }
 \examples{
 

@@ -1,9 +1,9 @@
-#' Prepare a Random Forest model
+#' Run a Random Forest model
 #'
-#' Given a random forest model, extract the importance coefficient and percent.
+#' Prepare and run a random forest model.
 #' @param predictor_vars A vector of predictors
 #' @param outcome_var A single outcome variable. Factor or numeric.
-#' @param prob Probability or response outcome? If true, outcome variable must be a factor.
+#' @param prob Probability or response outcome? If TRUE, outcome variable must be a factor.
 #' @keywords rf
 #' @import ranger
 #' @import tidyverse
