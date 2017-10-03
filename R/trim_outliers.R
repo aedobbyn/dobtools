@@ -3,17 +3,22 @@
 #' Remove outliers
 #' @param df A dataframe.
 #' @param cutoff A numeric cutoff value.
+#' @param exclude Vector of variables not to subject to cutting off.
 #' @param keep_scaled Should the newly scaled numeric variables be kept in the output?
 #' @keywords trim
 #' @import tidyverse
 #' @export
 #' @examples
 #'
-#' mtcars$mpg %>% cut_off_vecwise(20)
-#' mtcars$carb %>% map(cut_off_elementwise)
+#' trim_outliers(iris, cutoff = 1, exclude = "Sepal.Length", keep_scaled = FALSE)
 
-trim_outliers <- function(df, cutoff = 1.96, keep_scaled = TRUE){
+
+trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, keep_scaled = TRUE){
+
+  to_scale <- names(df)[!names(df) %in% exclude]
+
   df_scaled <- df %>%
+    select(!!to_scale) %>%
     transmute_if(
       is.numeric, scale
     )
@@ -21,7 +26,6 @@ trim_outliers <- function(df, cutoff = 1.96, keep_scaled = TRUE){
 
   df_out <- bind_cols(df_scaled, df)
 
-  browser()
   df_out_trimmed <- df_out %>%
     filter_at(
       .vars = vars(contains("_scaled")),
@@ -29,10 +33,9 @@ trim_outliers <- function(df, cutoff = 1.96, keep_scaled = TRUE){
     )
 
   if(keep_scaled == FALSE) {
-    df_out_trimmed <- select(names(df))
+    df_out_trimmed <- df_out_trimmed %>% select(!!names(df))
   }
 
   return(df_out_trimmed)
 }
 
-trim_outliers(iris, cutoff = 1.96, keep_scaled = TRUE)
