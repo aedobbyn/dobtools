@@ -1,4 +1,4 @@
-#' Cap It
+#' Cap Dataframe
 #'
 #' Capitalize the column names in a dataframe.
 #' @param df A dataframe.
