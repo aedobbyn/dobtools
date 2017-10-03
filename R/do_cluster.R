@@ -7,10 +7,20 @@
 #' @param n_centers The number of clusters you want.
 #' @keywords cluster
 #' @import tidyverse
+#' stringr
 #' @export
 #' @examples
-
-
+#'
+#' v <- names(iris)
+#' t_s <- v[-which(v == "Species" | v == "Petal.Length")]
+#'
+#' clustered_iris <- do_cluster(iris, vars = v, to_scale = t_s, n_centers = 3)
+#'
+#' ggplot(data=clustered_iris) +
+#'   geom_text(aes(Sepal.Width_scaled, Sepal.Length_scaled,
+#'                 colour = cluster_assignment,
+#'                 label = Species)) +
+#'   theme_bw()
 
 
 do_cluster <- function (df, vars, to_scale, n_centers = 5) {
@@ -19,24 +29,18 @@ do_cluster <- function (df, vars, to_scale, n_centers = 5) {
   # Scale the ones to be scaled and append _scaled to their names
   df_vars_scale <- df_for_clustering %>% select(!!to_scale) %>%
     scale() %>% as_tibble()
-  names(df_vars_scale) <- names(df_vars_scale) %>% str_c("_scaled")
+  names(df_vars_scale) <- names(df_vars_scale) %>% stringr::str_c("_scaled")
 
-  # # Put the scaled variables together with the rest of them
-  # cluster_prep_out <- bind_cols(df_vars_scale,
-  #                               df_for_clustering)
-
-  # Find the indices of
-  # scaled_var_inds <- which(grepl("_scaled", names(cluster_prep_out)))
-
+  # Do the clustering on the scaled data
   set.seed(9)
   clusters_out <- kmeans(x = df_vars_scale, centers = n_centers, trace = FALSE)
 
-  clustered_df <- as_tibble(data.frame(
+  # Combine cluster assignment, scaled data, and unscaled rest of data
+  clustered_df <- bind_cols(
     cluster_assignment = factor(clusters_out$cluster),   # Cluster assignment
-    # clustered_df_out,
     df_vars_scale,
     df_for_clustering
-  ))
+  )
 
   return(clustered_df)
 }

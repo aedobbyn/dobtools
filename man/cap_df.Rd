@@ -2,7 +2,7 @@
 % Please edit documentation in R/cap_df.R
 \name{cap_df}
 \alias{cap_df}
-\title{Cap It}
+\title{Cap Dataframe}
 \usage{
 cap_df(df)
 }
