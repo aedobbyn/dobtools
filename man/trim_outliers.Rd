@@ -9,7 +9,7 @@ trim_outliers(df, cutoff = 1.96, exclude = NULL, keep_scaled = TRUE)
 \arguments{
 \item{df}{A dataframe.}
 
-\item{cutoff}{A numeric cutoff value.}
+\item{cutoff}{A numeric standard deviation cutoff value.}
 
 \item{exclude}{Vector of variables not to subject to cutting off.}
 

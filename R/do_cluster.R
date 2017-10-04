@@ -23,7 +23,9 @@
 #'   theme_bw()
 
 
-do_cluster <- function (df, vars, to_scale, n_centers = 5) {
+do_cluster <- function (df, vars, to_scale, n_centers = 5, algorithm = "Hartigan-Wong",
+                        trace = FALSE) {
+
   df_for_clustering <- df %>% select(!!vars) %>% na.omit()
 
   # Scale the ones to be scaled and append _scaled to their names
@@ -32,8 +34,8 @@ do_cluster <- function (df, vars, to_scale, n_centers = 5) {
   names(df_vars_scale) <- names(df_vars_scale) %>% stringr::str_c("_scaled")
 
   # Do the clustering on the scaled data
-  set.seed(9)
-  clusters_out <- kmeans(x = df_vars_scale, centers = n_centers, trace = FALSE)
+  clusters_out <- kmeans(x = df_vars_scale, centers = n_centers, trace = trace,
+                         algorithm = algorithm)
 
   # Combine cluster assignment, scaled data, and unscaled rest of data
   clustered_df <- bind_cols(
@@ -44,3 +46,4 @@ do_cluster <- function (df, vars, to_scale, n_centers = 5) {
 
   return(clustered_df)
 }
+

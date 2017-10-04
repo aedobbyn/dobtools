@@ -2,7 +2,7 @@
 #'
 #' Remove outliers
 #' @param df A dataframe.
-#' @param cutoff A numeric cutoff value.
+#' @param cutoff A numeric standard deviation cutoff value.
 #' @param exclude Vector of variables not to subject to cutting off.
 #' @param keep_scaled Should the newly scaled numeric variables be kept in the output?
 #' @keywords trim
