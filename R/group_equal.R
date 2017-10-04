@@ -11,11 +11,11 @@
 #' @export
 #' @examples
 #'
-#' groups <- group_equal(mtcars, "mpg", n_groups = 5)
-#' group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
+groups <- group_equal(mtcars, "mpg", n_groups = 5)
+group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
 
 
-group_equal <- function(df, col, n_groups = 5) {
+group_equal <- function(df, col, n_groups = 5, add_first_last = TRUE) {
   df <- df %>% drop_na(!!col) %>%
     ungroup() %>%
     arrange_(.dots = col) %>%
@@ -25,12 +25,16 @@ group_equal <- function(df, col, n_groups = 5) {
   rnge <- range(df[[col]])
   n_per_group <- floor(n_total/n_groups)
 
-  vec <- min(df[[col]])
+  vec <- NULL
 
   for (g in 1:n_groups) {
     this_upper_bound <- df[which(df[["row_num"]]
                                  == (n_per_group * g)), ][[col]]
     vec <- c(vec, this_upper_bound)
+  }
+
+  if (add_first_last == TRUE) {
+    vec <- c(min(df[[col]]), vec, max(df[[col]]))
   }
 
   return(vec)
