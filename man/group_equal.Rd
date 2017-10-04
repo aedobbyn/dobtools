@@ -4,7 +4,7 @@
 \alias{group_equal}
 \title{Group Equal}
 \usage{
-group_equal(df, col, n_groups = 5)
+group_equal(df, col, n_groups = 5, add_first_last = TRUE)
 }
 \arguments{
 \item{df}{A dataframe}

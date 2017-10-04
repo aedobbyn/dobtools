@@ -11,8 +11,8 @@
 #' @export
 #' @examples
 #'
-groups <- group_equal(mtcars, "mpg", n_groups = 5)
-group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
+#' groups <- group_equal(mtcars, "mpg", n_groups = 5)
+#' group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
 
 
 group_equal <- function(df, col, n_groups = 5, add_first_last = TRUE) {
