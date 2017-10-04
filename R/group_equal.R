@@ -25,7 +25,7 @@ group_equal <- function(df, col, n_groups = 5) {
   rnge <- range(df[[col]])
   n_per_group <- floor(n_total/n_groups)
 
-  vec <- NULL
+  vec <- min(df[[col]])
 
   for (g in 1:n_groups) {
     this_upper_bound <- df[which(df[["row_num"]]
