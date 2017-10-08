@@ -11,7 +11,7 @@
 #'  or upper (add_first_last = TRUE) bound of the first group?
 #' @keywords group
 #' @import tidyverse
-#' lubridate
+#' @import lubridate
 #' @export
 #' @examples
 #'
@@ -24,16 +24,18 @@
 
 
 group_numeric <- function(df, col, vec, add_first_last = FALSE) {
+  assertthat::assert_that(is.numeric(df[[col]]) | lubridate::is.Date(df[[col]]),
+                          msg = "Column must be of type numeric or date.")
 
   is_date <- lubridate::is.Date(df[[col]])
 
   if(is_date == TRUE) {
     vec <- vec %>% as_date()
     if(add_first_last == TRUE) { # If we need to add a past and future date, do so
-      vec <- c(as_date("2000-01-01"), vec, as_date(Sys.Date() + 1000))
+      vec <- c(as_date("1970-01-01"), vec, as_date(Sys.Date() + 1000))
     }
   } else if (is_date == FALSE & add_first_last == TRUE) {
-    vec <- c(vec[1] - 1000, vec, vec[length(vec)] + 1000)
+    vec <- c(vec[1] - Inf, vec, vec[length(vec)] + Inf)
   }
 
   # Initialize sprint_number column

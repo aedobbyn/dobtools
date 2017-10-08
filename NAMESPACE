@@ -2,6 +2,7 @@
 
 export(analyze_rf)
 export(append_dollar_sign)
+export(cap_a_word)
 export(cap_df)
 export(cap_it)
 export(collapse_strings)

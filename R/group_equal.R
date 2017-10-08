@@ -7,7 +7,7 @@
 #' @param n_groups Number of groups to end.
 #' @keywords group
 #' @import tidyverse
-#' lubridate
+#' @import lubridate
 #' @export
 #' @examples
 #'

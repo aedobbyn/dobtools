@@ -7,7 +7,7 @@
 #' @param n_centers The number of clusters you want.
 #' @keywords cluster
 #' @import tidyverse
-#' stringr
+#' @import stringr
 #' @export
 #' @examples
 #'
