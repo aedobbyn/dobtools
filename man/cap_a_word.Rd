@@ -4,12 +4,16 @@
 \alias{cap_a_word}
 \title{Cap a Word}
 \usage{
-cap_a_word(phrase, to_cap = c("id", "Id"), collapse = " ")
+cap_a_word(phrase, to_cap = c("id", "Id"), collapse = " ", no_sep = FALSE)
 }
 \arguments{
 \item{phrase}{A single element or phrase containing one or more of the elements in `to_cap`}
 
 \item{to_cap}{A vector of words that, if contained in `phrase`, will be fully capitalized.}
+
+\item{collapse}{What separator should the whole thing be collapsed down with?}
+
+\item{no_sep}{The seperator is not a " " or a "_", we've got something like "thisId"}
 }
 \description{
 Find a word within a word and capitalize it.
@@ -17,7 +21,11 @@ Find a word within a word and capitalize it.
 \examples{
 
 cap_a_word("this_id")
+cap_a_word("this Id")
 cap_a_word("this_id", collapse = "_")
+cap_a_word("this_id", collapse = "")
+cap_a_word("thisid", no_sep = TRUE)
+cap_a_word("this.id")
 
 words_to_cap <- c("Petal", "Width")
 names(iris) \%>\% map(cap_a_word, words_to_cap) \%>\% as_vector()

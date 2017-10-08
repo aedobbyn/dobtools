@@ -4,8 +4,7 @@
 #' @param phrase A single element or phrase containing one or more of the elements in `to_cap`
 #' @param to_cap A vector of words that, if contained in `phrase`, will be fully capitalized.
 #' @param collapse What separator should the whole thing be collapsed down with?
-#' @param split_on What separator should the word be split on? Mostly important for a separator of
-#' "".
+#' @param no_sep The seperator is not a " " or a "_", we've got something like "thisId"
 #' @keywords cap
 #' @import tidyverse
 #' @import stringr
