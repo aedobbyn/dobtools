@@ -11,6 +11,7 @@
 #'
 #' cap_a_word("this_id")
 #' cap_a_word("this_id", collapse = "_")
+#' cap_a_word("thisid")
 #'
 #' words_to_cap <- c("Petal", "Width")
 #' names(iris) %>% map(cap_a_word, words_to_cap) %>% as_vector()
@@ -18,7 +19,9 @@
 cap_a_word <- function(phrase, to_cap = c("id", "Id"),
                        collapse = " ") {
 
-  assertr::assert_that(is_character(phrase) && is_character(to_cap))
+  assertthat::assert_that(is_character(phrase) && is_character(to_cap),
+                          msg = "The phrase and words to find must be characters.")
+
 
   # If any of the words to cap appear in the phrasetor
   if(any(str_detect(phrase, to_cap))) {
@@ -32,8 +35,12 @@ cap_a_word <- function(phrase, to_cap = c("id", "Id"),
       split_phrase <- str_split(phrase, "_") %>% as_vector()
     } else if (str_detect(phrase, " ") & str_detect(phrase, "_")) {
       split_phrase <- str_split(phrase, " ") %>% str_split(phrase, "_") %>% as_vector()
-    } else {
+    } else if (str_detect(phrase, "\\.") & str_detect(phrase, "_")) {
       split_phrase <- str_split(phrase, "\\.") %>% as_vector()
+    } else {
+      split_phrase_first <- str_split(phrase, this_uncapped)[[1]][1]
+      split_phrase_second <- str_extract(phrase, this_uncapped)
+      split_phrase <- c(split_phrase_first, split_phrase_second)
     }
 
     # Find the index of the word in the phrasetor that needs to be capitalized
