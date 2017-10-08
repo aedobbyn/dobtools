@@ -13,17 +13,17 @@
 #' @examples
 #'
 #' cap_a_word("this_id")
-#' cap_a_word("this Id", split_on = " ")
+#' cap_a_word("this Id")
 #' cap_a_word("this_id", collapse = "_")
 #' cap_a_word("this_id", collapse = "")
-#' cap_a_word("thisid", split_on = "")
-#' cap_a_word("this.id", split_on = ".")
+#' cap_a_word("thisid", no_sep = TRUE)
+#' cap_a_word("this.id")
 #'
 #' words_to_cap <- c("Petal", "Width")
 #' names(iris) %>% map(cap_a_word, words_to_cap) %>% as_vector()
 
 cap_a_word <- function(phrase, to_cap = c("id", "Id"),
-                       collapse = " ", split_on = "_") {
+                       collapse = " ", no_sep = FALSE) {
 
   assertthat::assert_that(is_character(phrase) && is_character(to_cap),
                           msg = "The phrase and words to find must be characters.")
@@ -34,23 +34,15 @@ cap_a_word <- function(phrase, to_cap = c("id", "Id"),
     # Find which of our keywords word we need to capitalize
     this_uncapped <- to_cap[which(stringr::str_detect(phrase, to_cap))]
 
-    browser()
-
     # Split the phrase into individual words
-
-    if (split_on == " " & str_detect(phrase, " ")) {
-      split_phrase <- str_split(phrase, " ") %>% as_vector()
-    } else if (split_on == "_" & str_detect(phrase, "_")) {
-      split_phrase <- str_split(phrase, "_") %>% as_vector()
-    } else if (split_on == "both" & str_detect(phrase, " ") & str_detect(phrase, "_")) {
-      split_phrase <- str_split(phrase, " ") %>% str_split(phrase, "_") %>% as_vector()
-    } else if (split_on == "." & str_detect(phrase, "\\.")) {
-      split_phrase <- str_split(phrase, "\\.") %>% as_vector()
-    } else if (split_on == "") {
+    splitters <- "_| |\\."
+    if (no_sep == FALSE & str_detect(phrase, splitters)) {
+      split_phrase <- str_split(phrase, splitters) %>% as_vector()
+    } else if (no_sep == TRUE) {
       split_phrase_first <- str_split(phrase, this_uncapped)[[1]][1]
       split_phrase_second <- str_extract(phrase, this_uncapped)
       split_phrase <- c(split_phrase_first, split_phrase_second)
-    } else {
+    } else if (no_sep == FALSE & (str_detect(phrase, splitters) == FALSE)) {
       split_phrase <- phrase
     }
 
@@ -62,6 +54,12 @@ cap_a_word <- function(phrase, to_cap = c("id", "Id"),
 
     # Put it all back together
     phrase <- str_c(split_phrase, collapse = collapse)
+
+    # Eliminate any leading whitespace caused by split_phrase_first
+    if(substr(phrase, 1, 1) == " ") {
+      phrase <- substr(phrase, 2, nchar(phrase))
+    }
+
   } else {
     phrase <- phrase
   }
