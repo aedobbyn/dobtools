@@ -58,9 +58,6 @@ cap_a_word <- function(phrase, to_cap = c("id", "Id"),
     if(substr(phrase, 1, 1) == " ") {
       phrase <- substr(phrase, 2, nchar(phrase))
     }
-
-  } else {
-    phrase <- phrase
   }
   return(phrase)
 }
