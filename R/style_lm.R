@@ -16,7 +16,7 @@ style_lm <- function(tidied_lm, add_commas = FALSE) {
   styled <- tidied_lm[-1, -4]  # Remove (Intercept) row and statistic column
   styled$term <- styled$term %>% map(dobtools::cap_it) %>% as_vector()
   names(styled) <- names(styled) %>% map(dobtools::cap_it) %>% as_vector()
-  styled <- styled %>% capitalize_df() %>%
+  styled <- styled %>% cap_df() %>%
     rename(
       Variable = Term
     ) %>% style_numeric(add_commas = add_commas)

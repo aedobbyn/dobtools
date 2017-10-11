@@ -24,8 +24,7 @@ cap_a_word_partial <- function(phrase, to_cap = c("id", "Id")) {
   assertthat::assert_that(is_character(phrase) && is_character(to_cap),
                           msg = "The phrase and words to find must be characters.")
 
-
-  # If any of the words to cap appear in the phrasetor
+  # If any of the words to cap appear in the vector
   if(any(str_detect(phrase, to_cap))) {
     # Find which of our keywords word we need to capitalize
     this_uncapped <- to_cap[which(stringr::str_detect(phrase, to_cap))]
