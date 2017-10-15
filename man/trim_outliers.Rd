@@ -20,6 +20,6 @@ Remove outliers
 }
 \examples{
 
-trim_outliers(iris, cutoff = 1, exclude = "Sepal.Length", keep_scaled = FALSE)
+trim_outliers(iris, cutoff = 1, exclude = c("Species", "Sepal.Length"), keep_scaled = FALSE)
 }
 \keyword{trim}
