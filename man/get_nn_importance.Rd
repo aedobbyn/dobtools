@@ -2,14 +2,14 @@
 % Please edit documentation in R/get_nn_importance.R
 \name{get_nn_importance}
 \alias{get_nn_importance}
-\title{Get Random Forest Variable Importance}
+\title{Get Neural Net Variable Importance}
 \usage{
 get_nn_importance(nn, keep_gini = FALSE)
 }
 \arguments{
 \item{keep_gini}{Keep the coefficient or just the percent importance?}
 
-\item{model}{A random forest model}
+\item{model}{A neural net or multinomial neural net}
 }
 \description{
 Given a variable impor, extract the importance coefficient and percent.
@@ -17,6 +17,8 @@ Given a variable impor, extract the importance coefficient and percent.
 \examples{
 
 iris_nn <- nnet::nnet(Species ~ ., data = iris, size = 3)
+iris_multinom <- nnet::multinom(Species ~ ., data = iris)
 iris_nn \%>\% get_nn_importance()
+iris_multinom \%>\% get_nn_importance()
 }
 \keyword{importance}
