@@ -1,6 +1,6 @@
 #' Get Neural Net Variable Importance
 #'
-#' Given a variable impor, extract the importance coefficient and percent.
+#' Given a neural net, extract the importance coefficient and percent.
 #' @param model A neural net or multinomial neural net
 #' @param keep_gini Keep the coefficient or just the percent importance?
 #' @keywords importance
