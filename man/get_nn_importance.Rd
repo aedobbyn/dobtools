@@ -12,7 +12,7 @@ get_nn_importance(nn, keep_gini = FALSE)
 \item{model}{A neural net or multinomial neural net}
 }
 \description{
-Given a variable impor, extract the importance coefficient and percent.
+Given a neural net, extract the importance coefficient and percent.
 }
 \examples{
 
