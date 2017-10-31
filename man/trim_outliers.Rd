@@ -4,7 +4,8 @@
 \alias{trim_outliers}
 \title{Trim Outliers}
 \usage{
-trim_outliers(df, cutoff = 1.96, exclude = NULL, keep_scaled = TRUE)
+trim_outliers(df, cutoff = 1.96, exclude = NULL, include = NULL,
+  keep_scaled = TRUE)
 }
 \arguments{
 \item{df}{A dataframe.}
@@ -13,13 +14,23 @@ trim_outliers(df, cutoff = 1.96, exclude = NULL, keep_scaled = TRUE)
 
 \item{exclude}{Vector of variables not to subject to cutting off.}
 
+\item{include}{Vector of variables to subject to cutting off.}
+
 \item{keep_scaled}{Should the newly scaled numeric variables be kept in the output?}
 }
 \description{
-Remove outliers
+Remove outliers by either choosing a vector of column names to include for consideration or choosing a vector
+for exclusion. Either include or exclude must be non-NULL (not neither and not both).
 }
 \examples{
 
 trim_outliers(iris, cutoff = 1, exclude = c("Species", "Sepal.Length"), keep_scaled = FALSE)
+trim_outliers(iris, cutoff = 2, include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE)
+
+# Error -- exclude and include can't both be non-NULL
+trim_outliers(iris, cutoff = 2, exclude = "Species", include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE)
+
+# Error -- exclude and include can't both be NULL
+trim_outliers(iris, cutoff = 2, keep_scaled = TRUE)
 }
 \keyword{trim}
