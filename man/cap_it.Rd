@@ -16,7 +16,7 @@ Capitalize a vector or dataframe using one of the apply or purrr functions.
 library(tidyverse)
 library(Hmisc)
 pre_cap_vec <- c("an all", "lowercase_string", "we.want", "to capitalize")
-capped_vec <- pre_cap \%>\% map_chr(cap_it)
+capped_vec <- pre_cap_vec \%>\% map_chr(cap_it)
 
 pre_cap_df <- list("another all" = c("blah_blah", "blah"),
                    "lowercase.dataframe" = c(1, 4),

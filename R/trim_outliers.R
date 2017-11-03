@@ -45,8 +45,8 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
   scale_and_vectorize <- function(x) {x <- as.vector(scale(x))}
 
   df_scaled <- df %>%
-    select(!!to_scale) %>%
-    mutate_all(scale_and_vectorize)
+    # select(!!to_scale) %>%
+    mutate_at(to_scale, scale_and_vectorize)
 
   names(df_scaled) <- names(df_scaled) %>% stringr::str_c("_scaled")
 
