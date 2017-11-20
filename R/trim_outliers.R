@@ -45,7 +45,7 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
 
   assertthat::assert_that(!(!is.null(exclude) & !(is.null(include))),
                           msg = "Only one of include and exclude can be non-NULL.")
-  browser()
+
   if (!is.null(exclude)) {
     to_scale <- names(df)[!names(df) %in% exclude]
   }
