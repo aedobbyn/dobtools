@@ -23,14 +23,29 @@
 
 
 
+
+
 trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, keep_scaled = TRUE){
+
+  add_scale_names <- function(n) {
+    if(n %in% to_scale) {
+      n <- n %>% stringr::str_c("_scaled")
+    } else {
+      n <- n
+    }
+  }
+
+  do_scale_names <- function(df) {
+    names(df) <- names(df) %>% map(add_scale_names) # %>% as_vector()
+    return(df)
+  }
 
   assertthat::assert_that(!(is.null(exclude) & is.null(include)),
                           msg = "Either include or exclude must not be NULL.")
 
   assertthat::assert_that(!(!is.null(exclude) & !(is.null(include))),
                           msg = "Only one of include and exclude can be non-NULL.")
-
+  browser()
   if (!is.null(exclude)) {
     to_scale <- names(df)[!names(df) %in% exclude]
   }
@@ -48,9 +63,7 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
     # select(!!to_scale) %>%
     mutate_at(to_scale, scale_and_vectorize)
 
-  names(df_scaled) <- names(df_scaled) %>% stringr::str_c("_scaled")
-
-  df_scaled <- df_scaled %>% map_dfc(., as_vector)
+  df_scaled <- df_scaled %>% do_scale_names() %>% map_dfc(., as_vector)   # Add the scaled bit
 
   df_out <- bind_cols(df_scaled, df)
 
