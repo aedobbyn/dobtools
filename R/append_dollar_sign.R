@@ -13,8 +13,8 @@
 append_dollar_sign <- function(vec, regex) {
   out <- NULL
   for (i in vec) {
-    if (grepl(col_regex, i)) {
-      i <- i %>% str_c(" ($)")
+    if (grepl(regex, i)) {
+      i <- i %>% stringr::str_c(" ($)")
     }
     out <- c(out, i)
   }
