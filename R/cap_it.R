@@ -31,13 +31,16 @@ cap_it <- function(e, ...) {
       e <- simple_cap(gsub(x = e, pattern = "_", replacement = " "))
     } else if (grepl(pattern = "\\.", x = e) == TRUE) {
       e <- simple_cap(gsub(x = e, pattern = "\\.", replacement = " "))
+    } else if (grepl(pattern = "-", x = e) == TRUE) {
+      e <- simple_cap(gsub(x = e, pattern = "-", replacement = " "))  # Keep the dash for, e.g., Mercedes-Benz
+      e <- gsub(x = e, pattern = " ", replacement = "-")
     } else {
       e <- simple_cap(e)
     }
   } else {
     e
   }
-
+  return(e)
 }
 
 
