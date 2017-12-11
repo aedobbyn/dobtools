@@ -55,7 +55,8 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
   }
 
   assertthat::assert_that(!(FALSE %in%
-                              sapply(df[, which(names(df) %in% to_scale)], is.numeric)), msg = "All variables to scale must be numeric.")
+        sapply(df[, which(names(df) %in% to_scale)], is.numeric)),
+        msg = "All variables to scale must be numeric.")
 
   scale_and_vectorize <- function(x) {x <- as.vector(scale(x))}
 
