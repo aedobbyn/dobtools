@@ -12,9 +12,9 @@
 #'    stringr
 #' @export
 #' @examples
-# iris_2 <- iris %>% as_tibble()
-# iris_2$Sepal.Width <- iris$Sepal.Width*1e+12
-# iris_2 %>% style_numeric(add_commas = TRUE)
+#' iris_2 <- iris %>% as_tibble()
+#' iris_2$Sepal.Width <- iris$Sepal.Width*1e+12
+#' iris_2 %>% style_numeric(add_commas = TRUE)
 
 
 style_numeric <- function(df, digits = 3, add_commas = FALSE, dont_add_commas = NULL) {
