@@ -27,7 +27,7 @@
 cap_it <- function(e, ...) {
 
   dont_cap_me <- c("a", "the", "this", "and", "but")
-  dont_cap_me_capped <- dont_cap_me %>% cap_it()
+  dont_cap_me_capped <- map_chr(dont_cap_me, simple_cap)
   dont_cap_me <- c(dont_cap_me, dont_cap_me_capped)
 
   if(is.character(e) & !(e %in% dont_cap_me)) {
