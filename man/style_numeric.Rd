@@ -22,7 +22,7 @@ to year columns).
 }
 \examples{
 iris_2 <- iris \%>\% as_tibble()
-iris_2$Sepal.Width <- iris$Sepal.Width*10000
+iris_2$Sepal.Width <- iris$Sepal.Width*1e+12
 iris_2 \%>\% style_numeric(add_commas = TRUE)
 }
 \keyword{numeric}

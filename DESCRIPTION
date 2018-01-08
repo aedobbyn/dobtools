@@ -3,7 +3,7 @@ Type: Package
 Title: Dobbyn's Analysis Helpers
 Version: 0.1.0
 Author: Amanda Dobbyn
-Maintainer: Amanda Dobbyn <aedobbyn@uchiago.edu>
+Maintainer: Amanda Dobbyn <amanda.e.dobbyn@gmail.com>
 Description: A smattering of analysis helpers to improve reproducibility.
 License: None
 Encoding: UTF-8
