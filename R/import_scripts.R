@@ -5,7 +5,6 @@
 #' @param pattern Extension pattern
 #' @import tidyverse
 #' @import stringr
-#' @return
 #' @export
 #'
 #' @examples
