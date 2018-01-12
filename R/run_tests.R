@@ -4,7 +4,7 @@
 #' @param ext Optional extension, if does not exist in file name.
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
 #'
-#' @import testthat
+#' @import stringr
 #' @export
 #'
 #' @examples

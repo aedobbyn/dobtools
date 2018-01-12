@@ -16,5 +16,12 @@ Imports:
     stringr,
     lubridate,
     ranger,
-    scales
+    scales,
+    caret,
+    nnet,
+    purrr,
+    stringdist,
+    broom,
+    assertthat
 Suggests: testthat
+    

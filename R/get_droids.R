@@ -1,2 +1,2 @@
 
-droids <- starwars[starwars$species == "Droid", ]
+# droids <- starwars[starwars$species == "Droid", ]
