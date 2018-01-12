@@ -1,6 +1,6 @@
-
-# Return whether an individual test passed or not
+#' Test It
 #'
+#' @description Return whether an individual test passed or not
 #' @param f The file
 #' @param verbose Should messages and warnings be suppressed
 #'
