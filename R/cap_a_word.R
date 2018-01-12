@@ -19,7 +19,6 @@
 #' cap_a_word("this.id")
 #'
 #' words_to_cap <- c("Petal", "Width")
-#' names(iris) %>% map(cap_a_word, words_to_cap) %>% as_vector()
 
 cap_a_word <- function(phrase, to_cap = c("id", "Id"),
                        collapse = " ", no_sep = FALSE) {

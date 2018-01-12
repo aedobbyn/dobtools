@@ -13,22 +13,6 @@
 #'
 
 
-# Return whether an individual test passed or not
-test_it <- function(f, verbose = FALSE) {
-  if (verbose == FALSE) {
-    result <- suppressMessages(suppressWarnings(try(source(f), silent = TRUE)))
-  } else {
-    result <- try(source(f), silent = TRUE)
-  }
-
-  if (inherits(result, "try-error")) {
-    message(paste0(" --- ", f, " FAILED --- "))
-  } else {
-    message(paste0(" --- ", f, " PASSED --- "))
-  }
-}
-
-
 # Run individual tests interactively or not
 run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE) {
   files <- str_c(files, ext)

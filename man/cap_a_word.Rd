@@ -28,6 +28,5 @@ cap_a_word("thisid", no_sep = TRUE)
 cap_a_word("this.id")
 
 words_to_cap <- c("Petal", "Width")
-names(iris) \%>\% map(cap_a_word, words_to_cap) \%>\% as_vector()
 }
 \keyword{cap}
