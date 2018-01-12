@@ -16,5 +16,7 @@ Source in a directory of R scripts
 }
 \examples{
 
+import_scripts(path = "./data")
 droids   # droids defined in data/get_droids.R
+import_scripts(path = "foo")   # Should fail with a warning, not an error
 }

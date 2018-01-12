@@ -9,9 +9,9 @@
 #'
 #' @examples
 #'
-# import_scripts(path = "./data")
+#' import_scripts(path = "./data", pattern = ".rda")
 #' droids   # droids defined in data/get_droids.R
-# import_scripts(path = "foo")   # Should fail with a warning, not an error
+#' import_scripts(path = "foo")   # Should fail with a warning, not an error
 
 import_scripts <- function(path, pattern = "*.R") {
   files <- list.files(path, pattern, ignore.case = TRUE)
