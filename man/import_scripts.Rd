@@ -16,8 +16,10 @@ Source in a directory of R scripts
 }
 \examples{
 
+# Import data
 import_scripts(path = "./data", pattern = ".rda")
-import_scripts(path = "./R", pattern = "get_droids.R")
-droids   # droids defined in data/get_droids.R
+
+# Import scripts
+import_scripts(path = "./data-raw", pattern = "get_droids.R")
 import_scripts(path = "foo")   # Should fail with a warning, not an error
 }

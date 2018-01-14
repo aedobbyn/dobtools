@@ -21,6 +21,6 @@ cap_a_word_partial("this Id")
 cap_a_word_partial("thisid")
 
 words_to_cap <- c("Petal", "Width")
-names(iris) \%>\% map(cap_a_word_partial, words_to_cap) \%>\% as_vector()
+map(names(iris), cap_a_word_partial, words_to_cap)
 }
 \keyword{cap}
