@@ -4,7 +4,7 @@
 \alias{run_tests}
 \title{Run Tests}
 \usage{
-run_tests(files = NULL, ext = NULL, line_by_line = TRUE)
+run_tests(files = NULL, ext = NULL, line_by_line = TRUE, beep = TRUE)
 }
 \arguments{
 \item{files}{A vector of test files, with or without extensions}
@@ -12,6 +12,8 @@ run_tests(files = NULL, ext = NULL, line_by_line = TRUE)
 \item{ext}{Optional extension, if does not exist in file name.}
 
 \item{line_by_line}{Do you want to step through with prompts? If non-interactive, this is not an option}
+
+\item{beep}{Should we beep when done?}
 }
 \description{
 Run Tests

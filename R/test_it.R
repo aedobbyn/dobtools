@@ -4,7 +4,6 @@
 #' @param f The file
 #' @param verbose Should messages and warnings be suppressed
 #'
-#' @return
 #' @export
 #'
 #' @examples

@@ -4,20 +4,24 @@
 \alias{import_scripts}
 \title{Import Scripts}
 \usage{
-import_scripts(path, pattern = "*.R")
+import_scripts(path, pattern = "*.R", quiet = TRUE)
 }
 \arguments{
 \item{path}{The directory path}
 
 \item{pattern}{Extension pattern}
+
+\item{quiet}{Should script be sourced quietly?}
 }
 \description{
 Source in a directory of R scripts
 }
 \examples{
 
+# Import data
 import_scripts(path = "./data", pattern = ".rda")
-import_scripts(path = "./R", pattern = "get_droids.R")
-droids   # droids defined in data/get_droids.R
+
+# Import scripts
+import_scripts(path = "./data-raw", pattern = "get_droids.R")
 import_scripts(path = "foo")   # Should fail with a warning, not an error
 }

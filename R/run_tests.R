@@ -3,8 +3,10 @@
 #' @param files A vector of test files, with or without extensions
 #' @param ext Optional extension, if does not exist in file name.
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
+#' @param beep Should we beep when done?
 #'
 #' @import stringr
+#' @import beepr
 #' @export
 #'
 #' @examples
@@ -14,7 +16,7 @@
 
 
 # Run individual tests interactively or not
-run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE) {
+run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE, beep = TRUE) {
   files <- str_c(files, ext)
 
   if (line_by_line == FALSE ) {  # | interactive() == FALSE
@@ -28,7 +30,7 @@ run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE) {
       answer <- readline(paste0("Should we test ", files[i], " ? \n y/n:       "))
 
       if (answer == "y" | answer == "Y") {
-        test_it(files[i])
+        test_it(files[i]) %>% beepr::beep(1)
         i <- i + 1
 
       } else if (answer == "n" | answer == "N") {
