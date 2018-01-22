@@ -16,7 +16,8 @@
 
 
 # Run individual tests interactively or not
-run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE, beep = TRUE) {
+run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE,
+                      beep = TRUE, beep_num = 1) {
   files <- str_c(files, ext)
 
   if (line_by_line == FALSE ) {  # | interactive() == FALSE
@@ -30,7 +31,7 @@ run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE, beep = TRUE
       answer <- readline(paste0("Should we test ", files[i], " ? \n y/n:       "))
 
       if (answer == "y" | answer == "Y") {
-        test_it(files[i]) %>% beepr::beep(1)
+        test_it(files[i]) %>% beepr::beep(beep_num)
         i <- i + 1
 
       } else if (answer == "n" | answer == "N") {
