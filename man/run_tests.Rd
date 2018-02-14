@@ -4,9 +4,12 @@
 \alias{run_tests}
 \title{Run Tests}
 \usage{
-run_tests(files = NULL, ext = NULL, line_by_line = TRUE, beep = TRUE)
+run_tests(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
+  beep = TRUE, beep_num = 1)
 }
 \arguments{
+\item{dir}{A directory in which your test files live}
+
 \item{files}{A vector of test files, with or without extensions}
 
 \item{ext}{Optional extension, if does not exist in file name.}

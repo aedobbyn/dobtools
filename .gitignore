@@ -5,3 +5,4 @@
 hello.R
 make_plot.R
 data
+inst/doc

@@ -1,5 +1,6 @@
 #' Run Tests
 #'
+#' @param dir A directory in which your test files live
 #' @param files A vector of test files, with or without extensions
 #' @param ext Optional extension, if does not exist in file name.
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
@@ -16,9 +17,9 @@
 
 
 # Run individual tests interactively or not
-run_tests <- function(files = NULL, ext = NULL, line_by_line = TRUE,
+run_tests <- function(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
                       beep = TRUE, beep_num = 1) {
-  files <- str_c(files, ext)
+  files <- stringr::str_c(dir, "/", files, ext)
 
   if (line_by_line == FALSE ) {  # | interactive() == FALSE
     for (i in seq_along(files)) {
