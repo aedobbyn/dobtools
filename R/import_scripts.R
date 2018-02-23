@@ -3,6 +3,7 @@
 #' @description Source in a directory of R scripts
 #' @param path The directory path
 #' @param pattern Extension pattern
+#' @param recursive Grab files in subdirectories?
 #' @param quiet Should script be sourced quietly?
 #' @import tidyverse
 #' @import stringr
@@ -17,8 +18,8 @@
 #' import_scripts(path = "./data-raw", pattern = "get_droids.R")
 #' import_scripts(path = "foo")   # Should fail with a warning, not an error
 
-import_scripts <- function(path, pattern = "*.R", quiet = TRUE) {
-  files <- list.files(path, pattern, ignore.case = TRUE)
+import_scripts <- function(path, pattern = "*.R", recursive = FALSE, quiet = TRUE) {
+  files <- list.files(path, pattern, recursive, ignore.case = TRUE)
   file_paths <- str_c(path, "/", files)
 
   try_source <- possibly(source, otherwise = message("File not found :("),

@@ -4,12 +4,14 @@
 \alias{import_scripts}
 \title{Import Scripts}
 \usage{
-import_scripts(path, pattern = "*.R", quiet = TRUE)
+import_scripts(path, pattern = "*.R", recursive = FALSE, quiet = TRUE)
 }
 \arguments{
 \item{path}{The directory path}
 
 \item{pattern}{Extension pattern}
+
+\item{recursive}{Grab files in subdirectories?}
 
 \item{quiet}{Should script be sourced quietly?}
 }
