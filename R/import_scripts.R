@@ -15,18 +15,18 @@
 #' import_scripts(path = "./data", pattern = ".rda")
 #'
 #' # Import scripts
-#' import_scripts(path = "./data-raw", pattern = "get_droids.R")
+#' import_scripts(path = "./data-raw", pattern = "get_droids.R", verbose = TRUE)
 #' import_scripts(path = "foo")   # Should fail with a warning, not an error
 
-import_scripts <- function(path, pattern = "*.R", recursive = FALSE, quiet = TRUE) {
+import_scripts <- function(path, pattern = "*.R", recursive = FALSE, verbose = FALSE) {
   files <- list.files(path, pattern, recursive, ignore.case = TRUE)
   file_paths <- str_c(path, "/", files)
 
-  try_source <- possibly(source, otherwise = message("File not found :("),
-    quiet = TRUE)
-
   for (file in file_paths) {
-    try_source(file)
+    if (verbose == TRUE) {
+      message(glue::glue("Sourcing {file}"))
+    }
+    source(file)
   }
 }
 
