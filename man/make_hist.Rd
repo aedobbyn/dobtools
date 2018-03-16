@@ -17,4 +17,4 @@ Choose a variable from a dataframe and make a histogram out of it. Capitalizes v
 \examples{
 make_hist(mtcars, "carb")
 }
-\keyword{capitalize}
+\keyword{plot}

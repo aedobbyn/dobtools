@@ -10,6 +10,8 @@ summarise_points(df, lowercase = TRUE, ...)
 \item{df}{A datafame}
 
 \item{lowercase}{"billed" and "points" by default. If FALSE, will use `Billed?` and Points}
+
+\item{...}{Other arguments}
 }
 \description{
 Summarise billed and unbilled points in a dataframe.

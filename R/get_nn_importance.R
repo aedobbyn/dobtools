@@ -4,8 +4,6 @@
 #' @param model A neural net or multinomial neural net
 #' @param keep_gini Keep the coefficient or just the percent importance?
 #' @keywords importance
-#' @import ranger
-#' @importFrom magrittr %>%
 #' @export
 #' @examples
 #'

@@ -5,8 +5,6 @@
 #' @param pattern Extension pattern
 #' @param recursive Grab files in subdirectories?
 #' @param quiet Should script be sourced quietly?
-#' @import tidyverse
-#' @import stringr
 #' @export
 #'
 #' @examples
@@ -20,7 +18,7 @@
 
 import_scripts <- function(path, pattern = "*.R", recursive = FALSE, verbose = FALSE) {
   files <- list.files(path, pattern, recursive, ignore.case = TRUE)
-  file_paths <- str_c(path, "/", files)
+  file_paths <- stringr::str_c(path, "/", files)
 
   for (file in file_paths) {
     if (verbose == TRUE) {

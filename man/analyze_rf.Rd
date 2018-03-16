@@ -14,9 +14,7 @@ Take a random forest model and extract accuracy (if classification) or MSE (if r
 }
 \examples{
 
-library(ranger)
-
-iris_rf <- ranger(Species ~ . , data = iris)
+iris_rf <- ranger::ranger(Species ~ . , data = iris)
 analyze_rf(iris_rf)
 }
 \keyword{analyze}

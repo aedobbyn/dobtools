@@ -8,6 +8,8 @@ style_mod(m, add_commas = FALSE)
 }
 \arguments{
 \item{m}{The output (not summarized) of a generalized linear model (glm) or linear model (lm).}
+
+\item{add_commas}{Should commas be added to numbers >= 1000?}
 }
 \description{
 Style a model output depending on whether it's a linear model or generalized linear model.

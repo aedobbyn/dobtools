@@ -15,6 +15,10 @@ do_cluster(df, vars, to_scale, n_centers = 5, algorithm = "Hartigan-Wong",
 \item{to_scale}{A subset of vars, all numeric, to be scaled and used for clustering.}
 
 \item{n_centers}{The number of clusters you want.}
+
+\item{algorithm}{kmeans algo to use}
+
+\item{trace}{Trace progress?}
 }
 \description{
 From beginning to end
@@ -26,10 +30,10 @@ t_s <- v[-which(v == "Species" | v == "Petal.Length")]
 
 clustered_iris <- do_cluster(iris, vars = v, to_scale = t_s, n_centers = 3)
 
-ggplot(data=clustered_iris \%>\% trim_outliers()) +
-  geom_text(aes(Sepal.Width_scaled, Sepal.Length_scaled,
+ggplot2::ggplot(data = clustered_iris \%>\% trim_outliers(exclude = c("cluster_assignment", "Species"))) +
+  ggplot2::geom_text(ggplot2::aes(Sepal.Width_scaled, Sepal.Length_scaled,
                 colour = cluster_assignment,
                 label = Species)) +
-  theme_bw()
+  ggplot2::theme_bw()
 }
 \keyword{cluster}

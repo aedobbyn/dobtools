@@ -5,7 +5,6 @@
 #' @param word A string
 #' @param return_bool Should you get the word to say back or a boolean?
 #' @keywords plural
-#' @import tidyverse
 #' @export
 #' @examples
 #' is_plural("CATS")

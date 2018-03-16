@@ -4,14 +4,10 @@
 #' Take a random forest model and extract accuracy (if classification) or MSE (if regression).
 #' @param model A random forest model object.
 #' @keywords analyze
-#' @import ranger
-#' @import tidyverse
 #' @export
 #' @examples
 #'
-#' library(ranger)
-#'
-#' iris_rf <- ranger(Species ~ . , data = iris)
+#' iris_rf <- ranger::ranger(Species ~ . , data = iris)
 #' analyze_rf(iris_rf)
 
 analyze_rf <- function(model) {
@@ -28,5 +24,6 @@ analyze_rf <- function(model) {
   }
 
   rf_analyzed <- list(accuracy = accuracy, root_MSE = root_MSE)
+
   return(rf_analyzed)
 }

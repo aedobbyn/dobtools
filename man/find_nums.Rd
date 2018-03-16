@@ -21,6 +21,6 @@ If something can be coerced to numeric, is_num is TRUE; if it just contains digi
 }
 \examples{
 
-mt_df <- mtcars \%>\% mutate(car_name = rownames(.))
+mt_df <- mtcars \%>\% dplyr::mutate(car_name = rownames(.))
 mt_df \%>\% find_nums(car_name)
 }

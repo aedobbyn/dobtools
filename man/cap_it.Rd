@@ -8,6 +8,8 @@ cap_it(e, ...)
 }
 \arguments{
 \item{e}{A vector or dataframe.}
+
+\item{...}{Other arguments}
 }
 \description{
 Capitalize a vector or dataframe using one of the apply or purrr functions.

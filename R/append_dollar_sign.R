@@ -4,11 +4,9 @@
 #' @param vec A vector
 #' @param regex A regex of elements in that vector to append the dollar sign to.
 #' @keywords dollar
-#' @import tidyverse
 #' @export
 #' @examples
 #' append_dollar_sign(names(mtcars), "hp|dr|car")
-
 
 append_dollar_sign <- function(vec, regex) {
   out <- NULL
@@ -18,5 +16,5 @@ append_dollar_sign <- function(vec, regex) {
     }
     out <- c(out, i)
   }
-  out
+  return(out)
 }

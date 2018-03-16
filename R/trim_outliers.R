@@ -8,7 +8,6 @@
 #' @param exclude Vector of variables not to subject to cutting off.
 #' @param keep_scaled Should the newly scaled numeric variables be kept in the output?
 #' @keywords trim
-#' @import tidyverse
 #' @export
 #' @examples
 #'

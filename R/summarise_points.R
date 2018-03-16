@@ -3,6 +3,7 @@
 #' Summarise billed and unbilled points in a dataframe.
 #' @param df A datafame
 #' @param lowercase "billed" and "points" by default. If FALSE, will use `Billed?` and Points
+#' @param ... Other arguments
 #' @keywords summarise
 #' @export
 #' @examples

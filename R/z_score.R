@@ -3,7 +3,6 @@
 #' Scale a vector and get a plain vanilla numeric vector back.
 #' @param vec A numeric vector
 #' @keywords scale
-#' @import tidyverse
 #' @export
 #' @examples
 #'
@@ -17,7 +16,7 @@ z_score <- function(vec) {
     z <- (e - vec_mean) / vec_sd
   }
 
-  vec_z <- vec %>% map_dbl(get_score)
+  vec_z <- vec %>% purrr::map_dbl(get_score)
   return(vec_z)
 }
 
