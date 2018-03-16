@@ -5,9 +5,7 @@
 #' @param keep_gini Keep the coefficient or just the percent importance?
 #' @keywords importance
 #' @import ranger
-#' @import tidyverse
-#' @import nnet
-#' @import caret
+#' @importFrom magrittr %>%
 #' @export
 #' @examples
 #'
@@ -23,17 +21,17 @@ get_nn_importance <- function(nn, keep_gini = FALSE) {
   names <- importance_df %>% row.names()
 
   importance_df <- importance_df %>%
-    as_tibble() %>% select(Overall) %>%
+    tibble::as_tibble() %>% dplyr::select(Overall) %>%
     dplyr::arrange(desc(Overall)) %>%
-    bind_cols(Variable = names) %>%
-    rename(Importance = Overall) %>%
-    mutate(
+    dplyr::bind_cols(Variable = names) %>%
+    dplyr::rename(Importance = Overall) %>%
+    dplyr::mutate(
       `Importance Percent` = ((Importance/sum(.$Importance))) %>% round(digits=3) %>%
         scales::percent()
     )
 
   if(keep_gini == FALSE) {
-    importance_df <- importance_df %>% select(-Importance)
+    importance_df <- importance_df %>% dplyr::select(-Importance)
   }
 
   return(importance_df)

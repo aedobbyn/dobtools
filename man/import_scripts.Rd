@@ -4,7 +4,7 @@
 \alias{import_scripts}
 \title{Import Scripts}
 \usage{
-import_scripts(path, pattern = "*.R", recursive = FALSE, quiet = TRUE)
+import_scripts(path, pattern = "*.R", recursive = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{path}{The directory path}
@@ -24,6 +24,6 @@ Source in a directory of R scripts
 import_scripts(path = "./data", pattern = ".rda")
 
 # Import scripts
-import_scripts(path = "./data-raw", pattern = "get_droids.R")
+import_scripts(path = "./data-raw", pattern = "get_droids.R", verbose = TRUE)
 import_scripts(path = "foo")   # Should fail with a warning, not an error
 }

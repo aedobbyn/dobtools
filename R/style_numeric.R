@@ -8,11 +8,10 @@
 #' @param dont_add_commas A character vector of columns that should not have commas added,
 #' if add_commas is TRUE.
 #' @keywords numeric
-#' @import scales
-#'    stringr
+
 #' @export
 #' @examples
-#' iris_2 <- iris %>% as_tibble()
+#' iris_2 <- iris %>% tibble::as_tibble()
 #' iris_2$Sepal.Width <- iris$Sepal.Width*1e+12
 #' iris_2 %>% style_numeric(add_commas = TRUE)
 
@@ -28,8 +27,8 @@ style_numeric <- function(df, digits = 3, add_commas = FALSE, dont_add_commas = 
     non_year_cols <- names(df)
   }
 
-  df <- df %>% map_if(is.numeric, round, digits = digits) %>%
-    as_tibble()
+  df <- df %>% purrr::map_if(is.numeric, round, digits = digits) %>%
+    tibble::as_tibble()
 
   if (add_commas == TRUE) {
     for (col in names(df)) {
@@ -37,7 +36,7 @@ style_numeric <- function(df, digits = 3, add_commas = FALSE, dont_add_commas = 
         df[[col]] <- df[[col]] %>% scales::comma_format()()
       }
     }
-    message(paste0("Adding commas to columns: ", str_c(non_year_cols, collapse = ", ")))
+    message(paste0("Adding commas to columns: ", stringr::str_c(non_year_cols, collapse = ", ")))
   }
   return(df)
 }

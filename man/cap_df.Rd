@@ -14,5 +14,6 @@ Capitalize the column names in a dataframe.
 }
 \examples{
 mtcars_2 <- mtcars \%>\% cap_df()
+
 }
 \keyword{capitalize}

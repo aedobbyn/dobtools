@@ -4,10 +4,10 @@
 \alias{simple_cap}
 \title{Simple Capitalization}
 \usage{
-simple_cap(x)
+simple_cap(e)
 }
 \arguments{
-\item{x}{A character vector}
+\item{e}{A character vector}
 }
 \description{
 Capitalize the first letter in every word given a vector of words.

@@ -7,9 +7,9 @@
 ... \%notin\% NA
 }
 \description{
-Not In
+Shortcut for !x %in% y
 }
 \examples{
-
 mtcars$gear[mtcars$gear \%notin\% 3]
+
 }
