@@ -16,18 +16,18 @@ Find the best match (or no match at all) to string inputs.
 }
 \examples{
 
-library(tidyverse)
-iris \%>\% mutate(
-  foo = map_chr(as.character(Species), match_maker,
+iris \%>\% dplyr::mutate(
+  foo = purrr::map_chr(as.character(Species), match_maker,
                 matches = c("Virginia", "California", "Sarasota"))
   )
 
-iris \%>\% mutate(
-  foo = map_chr(as.character(Species), match_maker,
+iris \%>\% dplyr::mutate(
+  foo = purrr::map_chr(as.character(Species), match_maker,
                 matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
 )
 
 match_maker_full(as.character(iris$Species),
                  matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
+
 }
 \keyword{match}

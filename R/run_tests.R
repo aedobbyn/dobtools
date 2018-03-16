@@ -6,8 +6,6 @@
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
 #' @param beep Should we beep when done?
 #'
-#' @import stringr
-#' @import beepr
 #' @export
 #'
 #' @examples

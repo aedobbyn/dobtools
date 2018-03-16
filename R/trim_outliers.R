@@ -22,9 +22,6 @@
 #' trim_outliers(iris, cutoff = 2, keep_scaled = TRUE)
 
 
-
-
-
 trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, keep_scaled = TRUE){
 
   add_scale_names <- function(n) {
@@ -36,7 +33,7 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
   }
 
   do_scale_names <- function(df) {
-    names(df) <- names(df) %>% map(add_scale_names) # %>% as_vector()
+    names(df) <- names(df) %>% purrr::map(add_scale_names) # %>% purrr::as_vector()
     return(df)
   }
 
@@ -62,20 +59,20 @@ trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, kee
 
   df_scaled <- df %>%
     # select(!!to_scale) %>%
-    mutate_at(to_scale, scale_and_vectorize)
+    dplyr::mutate_at(to_scale, scale_and_vectorize)
 
-  df_scaled <- df_scaled %>% do_scale_names() %>% map_dfc(., as_vector)   # Add the scaled bit
+  df_scaled <- df_scaled %>% do_scale_names() %>% purrr::map_dfc(., purrr::as_vector)   # Add the scaled bit
 
-  df_out <- bind_cols(df_scaled, df)
+  df_out <- dplyr::bind_cols(df_scaled, df)
 
   df_out_trimmed <- df_out %>%
-    filter_at(
-      .vars = vars(contains("_scaled")),
-      .vars_predicate = all_vars(. < abs(cutoff))
+    dplyr::filter_at(
+      .vars = dplyr::vars(dplyr::contains("_scaled")),
+      .vars_predicate = dplyr::all_vars(. < abs(cutoff))
     )
 
   if(keep_scaled == FALSE) {
-    df_out_trimmed <- df_out_trimmed %>% select(!!names(df))
+    df_out_trimmed <- df_out_trimmed %>% dplyr::select(!!names(df))
   }
 
   return(df_out_trimmed)

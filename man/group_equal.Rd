@@ -20,6 +20,6 @@ Split a dataframe column into equal-sized groups.
 \examples{
 
 groups <- group_equal(mtcars, "mpg", n_groups = 5)
-group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
+dobtools::group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
 }
 \keyword{group}

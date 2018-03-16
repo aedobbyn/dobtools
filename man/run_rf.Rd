@@ -20,6 +20,6 @@ Prepare and run a random forest model.
 
 preds <- c("disp", "hp", "qsec")
 response <- "carb"
-mt_rf <- run_rf(mtcars, preds, response, prob = FALSE, filter_var = "vs", filter_to = 0)
+mt_rf <- run_rf(mtcars, preds, response, prob = FALSE)
 }
 \keyword{rf}

@@ -6,20 +6,18 @@
 #' will be set to NA for that row.
 #' @param n_groups Number of groups to end.
 #' @keywords group
-#' @import tidyverse
-#' @import lubridate
 #' @export
 #' @examples
 #'
 #' groups <- group_equal(mtcars, "mpg", n_groups = 5)
-#' group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
+#' dobtools::group_numeric(mtcars, "mpg", groups, add_first_last = TRUE)
 
 
 group_equal <- function(df, col, n_groups = 5, add_first_last = TRUE) {
-  df <- df %>% drop_na(!!col) %>%
-    ungroup() %>%
-    arrange_(.dots = col) %>%
-    mutate(row_num = row_number())
+  df <- df %>% tidyr::drop_na(!!col) %>%
+    dplyr::ungroup() %>%
+    dplyr::arrange_(.dots = col) %>%
+    dplyr::mutate(row_num = row_number())
 
   n_total <- nrow(df)
   rnge <- range(df[[col]])

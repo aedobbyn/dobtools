@@ -4,24 +4,22 @@
 #' @param e An character
 #' @param matches A vector in which to look for matches with e.
 #' @keywords match
-#' @import tidyverse
-#' @import stringdist
 #' @export
 #' @examples
 #'
-#' library(tidyverse)
-#' iris %>% mutate(
-#'   foo = map_chr(as.character(Species), match_maker,
+#' iris %>% dplyr::mutate(
+#'   foo = purrr::map_chr(as.character(Species), match_maker,
 #'                 matches = c("Virginia", "California", "Sarasota"))
 #'   )
 #'
-#' iris %>% mutate(
-#'   foo = map_chr(as.character(Species), match_maker,
+#' iris %>% dplyr::mutate(
+#'   foo = purrr::map_chr(as.character(Species), match_maker,
 #'                 matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
 #' )
 #'
 #' match_maker_full(as.character(iris$Species),
 #'                  matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
+#'
 
 
 match_maker <- function(e, matches, max_dist = 5) {

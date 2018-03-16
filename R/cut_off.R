@@ -5,7 +5,6 @@
 #' @param cutoff A numeric cutoff value.
 #' @param e An element of a vector.
 #' @keywords cluster
-#' @import tidyverse
 #' @export
 #' @examples
 #'

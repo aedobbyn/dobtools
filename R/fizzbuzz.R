@@ -7,7 +7,6 @@
 #' @param len Length of vector
 #' @param i Index, in fiz_vec
 #' @keywords fizzbuzz
-#' @import purrr
 #' @export
 #' @examples
 #'

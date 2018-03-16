@@ -27,7 +27,7 @@ Mutate a dataframe by assigning each row a group based on its value in a certain
 mpg_cuts <- c(15, 20, 25, 30)
 group_numeric(mtcars, "mpg", mpg_cuts, add_first_last = TRUE)
 
-mtcars$some_dates <- (rnorm(n = 32) * 5) \%>\% as_date()
+mtcars$some_dates <- (rnorm(n = 32) * 5) \%>\% lubridate::as_date()
 date_cuts <- c("1969-11-01", "1969-12-29", "1970-01-01", "1970-01-04", "1970-02-01")
 group_numeric(mtcars, "some_dates", date_cuts, add_first_last = FALSE)
 }

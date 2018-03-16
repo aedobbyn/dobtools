@@ -5,9 +5,6 @@
 #' @param model A random forest model
 #' @param keep_gini Keep the coefficient or just the percent importance?
 #' @keywords importance
-#' @import ranger
-#' @import tidyverse
-#' @import ranger
 #' @export
 #' @examples
 #'
@@ -17,25 +14,25 @@
 
 get_rf_importance <- function(model, keep_gini = FALSE) {
 
-  importance_sorted <- importance(model) %>% sort(., decreasing = TRUE) # Vector of imporances
+  importance_sorted <- ranger::importance(model) %>% sort(., decreasing = TRUE) # Vector of imporances
   importance_names <- names(importance_sorted) %>%
-    map(dobtools::cap_it) %>% as_vector()
+    purrr::map(dobtools::cap_it) %>% purrr::as_vector()
   importance_vals <- importance_sorted %>% as.numeric() %>%
-    map(round, digits = 1) %>% as_vector()
+    purrr::map(round, digits = 1) %>% purrr::as_vector()
 
   importance_total <- sum(importance_vals)
 
-  importance_df <- bind_cols(`Variable Name` = importance_names,
+  importance_df <- dplyr::bind_cols(`Variable Name` = importance_names,
                              "Importance" = importance_vals) %>%
     data.frame() %>%
-    mutate(
+    dplyr::mutate(
       `Importance Percent` = ((Importance/importance_total)) %>% round(digits=3) %>%
         scales::percent(),
       Importance = Importance %>% scales::comma_format()()
     )
 
   if(keep_gini == FALSE) {
-    importance_df <- importance_df %>% select(-Importance)
+    importance_df <- importance_df %>% dplyr::select(-Importance)
   }
 
   return(importance_df)

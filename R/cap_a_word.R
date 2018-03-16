@@ -6,8 +6,6 @@
 #' @param collapse What separator should the whole thing be collapsed down with?
 #' @param no_sep The seperator is not a " " or a "_", we've got something like "thisId"
 #' @keywords cap
-#' @import tidyverse
-#' @import stringr
 #' @export
 #' @examples
 #'
@@ -23,24 +21,24 @@
 cap_a_word <- function(phrase, to_cap = c("id", "Id"),
                        collapse = " ", no_sep = FALSE) {
 
-  assertthat::assert_that(is_character(phrase) && is_character(to_cap),
+  assertthat::assert_that(rlang::is_character(phrase) && rlang::is_character(to_cap),
                           msg = "The phrase and words to find must be characters.")
 
 
   # If any of the words to cap appear in the phrasetor
-  if(any(str_detect(phrase, to_cap))) {
+  if(any(stringr::str_detect(phrase, to_cap))) {
     # Find which of our keywords word we need to capitalize
     this_uncapped <- to_cap[which(stringr::str_detect(phrase, to_cap))]
 
     # Split the phrase into individual words
     splitters <- "_| |\\."
-    if (no_sep == FALSE & str_detect(phrase, splitters)) {
-      split_phrase <- str_split(phrase, splitters) %>% as_vector()
+    if (no_sep == FALSE & stringr::str_detect(phrase, splitters)) {
+      split_phrase <- stringr::str_split(phrase, splitters) %>% purrr::as_vector()
     } else if (no_sep == TRUE) {
-      split_phrase_first <- str_split(phrase, this_uncapped)[[1]][1]
-      split_phrase_second <- str_extract(phrase, this_uncapped)
+      split_phrase_first <- stringr::str_split(phrase, this_uncapped)[[1]][1]
+      split_phrase_second <- stringr::str_extract(phrase, this_uncapped)
       split_phrase <- c(split_phrase_first, split_phrase_second)
-    } else if (no_sep == FALSE & (str_detect(phrase, splitters) == FALSE)) {
+    } else if (no_sep == FALSE & (stringr::str_detect(phrase, splitters) == FALSE)) {
       split_phrase <- phrase
     }
 
@@ -51,7 +49,7 @@ cap_a_word <- function(phrase, to_cap = c("id", "Id"),
     split_phrase[to_cap_ind] <- split_phrase[to_cap_ind] %>% toupper()
 
     # Put it all back together
-    phrase <- str_c(split_phrase, collapse = collapse)
+    phrase <- stringr::str_c(split_phrase, collapse = collapse)
 
     # Eliminate any leading whitespace caused by split_phrase_first
     if(substr(phrase, 1, 1) == " ") {

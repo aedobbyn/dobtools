@@ -10,15 +10,13 @@
 #' In other words, should the 1st element of the vector be considered the lower (add_first_last = FALSE)
 #'  or upper (add_first_last = TRUE) bound of the first group?
 #' @keywords group
-#' @import tidyverse
-#' @import lubridate
 #' @export
 #' @examples
 #'
 #' mpg_cuts <- c(15, 20, 25, 30)
 #' group_numeric(mtcars, "mpg", mpg_cuts, add_first_last = TRUE)
 #'
-#' mtcars$some_dates <- (rnorm(n = 32) * 5) %>% as_date()
+#' mtcars$some_dates <- (rnorm(n = 32) * 5) %>% lubridate::as_date()
 #' date_cuts <- c("1969-11-01", "1969-12-29", "1970-01-01", "1970-01-04", "1970-02-01")
 #' group_numeric(mtcars, "some_dates", date_cuts, add_first_last = FALSE)
 
@@ -30,9 +28,9 @@ group_numeric <- function(df, col, vec, add_first_last = FALSE) {
   is_date <- lubridate::is.Date(df[[col]])
 
   if(is_date == TRUE) {
-    vec <- vec %>% as_date()
+    vec <- vec %>% lubridate::as_date()
     if(add_first_last == TRUE) { # If we need to add a past and future date, do so
-      vec <- c(as_date("1970-01-01"), vec, as_date(Sys.Date() + 1000))
+      vec <- c(lubridate::as_date("1970-01-01"), vec, lubridate::as_date(Sys.Date() + 1000))
     }
   } else if (is_date == FALSE & add_first_last == TRUE) {
     vec <- c(vec[1] - Inf, vec, vec[length(vec)] + Inf)

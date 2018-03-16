@@ -17,11 +17,11 @@ Specify the end of the word using the splitter variable.
 \examples{
 grab_first_word("some string but I just want the first word")
 
-starwars \%>\%
-  select(name) \%>\%
-  mutate(
-    first_name = map_chr(name, grab_first_word),
-    droid_first_name = map_chr(first_name, grab_first_word, splitter = "-")
+dplyr::starwars \%>\%
+  dplyr::select(name) \%>\%
+  dplyr::mutate(
+    first_name = purrr::map_chr(name, grab_first_word),
+    droid_first_name = purrr::map_chr(first_name, grab_first_word, splitter = "-")
   )
 }
 \keyword{capitalize}
