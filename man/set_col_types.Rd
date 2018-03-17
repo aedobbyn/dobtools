@@ -17,6 +17,8 @@ set_col_types(df, fac_regex = "", num_regex = "", date_regex = "",
 \item{date_regex}{A regex of column names to be turned into dates.}
 
 \item{char_regex}{A regex of column names to be turned into character.}
+
+\item{...}{Other arguments}
 }
 \description{
 Set column types in a dataframe using regexes. Separate full or partial column names

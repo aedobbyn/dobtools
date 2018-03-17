@@ -26,14 +26,14 @@ summarise_points <- function(df, lowercase = TRUE, ...) {
 
   if(lowercase == TRUE) {
     point_summary <- df %>%
-      summarise(
+      dplyr::summarise(
         Billed = sum(points[billed == "Yes"], na.rm = TRUE),
         Unbilled = sum(points[billed == "No"], na.rm = TRUE),
         Total = sum(points, na.rm = TRUE)
       )
   } else {
     point_summary <- df %>%
-      summarise(
+      dplyr::summarise(
         Billed = sum(Points[`Billed?` == "Yes"], na.rm = TRUE),
         Unbilled = sum(Points[`Billed?` == "No"], na.rm = TRUE),
         Total = sum(Points, na.rm = TRUE)

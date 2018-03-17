@@ -24,7 +24,8 @@ pre_cap_df <- list("another all" = c("blah_blah", "blah"),
 
 
 first_col <- pre_cap_df[[1]] \%>\% purrr::map_chr(cap_it)
-second_col <- pre_cap_df[[2]] \%>\% purrr::map_chr(cap_it) # Numeric column coerced from numeric to character
+second_col <- pre_cap_df[[2]] \%>\%
+  purrr::map_chr(cap_it) # Numeric column coerced from numeric to character
 
 # Capitalize all character elements of dataframe and column names
 capped_df <- pre_cap_df \%>\% purrr::map(cap_it) \%>\% data.frame()  # Here, not coerced

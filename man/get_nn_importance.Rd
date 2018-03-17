@@ -7,9 +7,9 @@
 get_nn_importance(nn, keep_gini = FALSE)
 }
 \arguments{
-\item{keep_gini}{Keep the coefficient or just the percent importance?}
+\item{nn}{A neural net or multinomial neural net}
 
-\item{model}{A neural net or multinomial neural net}
+\item{keep_gini}{Keep the coefficient or just the percent importance?}
 }
 \description{
 Given a neural net, extract the importance coefficient and percent.

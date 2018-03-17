@@ -7,9 +7,13 @@
 run_rf(data, predictor_vars, outcome_var, n_trees = 500, prob = FALSE)
 }
 \arguments{
+\item{data}{A dataframe}
+
 \item{predictor_vars}{A vector of predictors}
 
 \item{outcome_var}{A single outcome variable. Factor or numeric.}
+
+\item{n_trees}{Number of trees to be grown in ranger::num.trees}
 
 \item{prob}{Probability or response outcome? If TRUE, outcome variable must be a factor.}
 }

@@ -15,12 +15,14 @@
 #' t_s <- v[-which(v == "Species" | v == "Petal.Length")]
 #'
 #' clustered_iris <- do_cluster(iris, vars = v, to_scale = t_s, n_centers = 3)
-#'
-#' ggplot2::ggplot(data = clustered_iris %>% trim_outliers(exclude = c("cluster_assignment", "Species"))) +
-#'   ggplot2::geom_text(ggplot2::aes(Sepal.Width_scaled, Sepal.Length_scaled,
+#' \dontrun{
+#' ggplot(data = clustered_iris %>%
+#'                   trim_outliers(exclude = c("cluster_assignment", "Species"))) +
+#'   geom_text(aes(Sepal.Width_scaled, Sepal.Length_scaled,
 #'                 colour = cluster_assignment,
 #'                 label = Species)) +
-#'   ggplot2::theme_bw()
+#'   theme_bw()
+#' }
 
 
 do_cluster <- function (df, vars, to_scale, n_centers = 5, algorithm = "Hartigan-Wong",
@@ -34,7 +36,7 @@ do_cluster <- function (df, vars, to_scale, n_centers = 5, algorithm = "Hartigan
   names(df_vars_scale) <- names(df_vars_scale) %>% stringr::str_c("_scaled")
 
   # Do the clustering on the scaled data
-  clusters_out <- kmeans(x = df_vars_scale, centers = n_centers, trace = trace,
+  clusters_out <- stats::kmeans(x = df_vars_scale, centers = n_centers, trace = trace,
                          algorithm = algorithm)
 
   # Combine cluster assignment, scaled data, and unscaled rest of data

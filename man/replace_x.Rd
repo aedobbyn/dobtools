@@ -17,5 +17,6 @@ Replace missing or NA values with a replacement
 \examples{
 
 vec <- c("a", NA, "b")
-vec \%>\% map(replace_x, replacement = "foo")
+vec \%>\% purrr::map(replace_x, replacement = "foo")
+
 }

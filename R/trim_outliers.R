@@ -11,14 +11,19 @@
 #' @export
 #' @examples
 #'
-#' trim_outliers(iris, cutoff = 1, exclude = c("Species", "Sepal.Length"), keep_scaled = FALSE)
-#' trim_outliers(iris, cutoff = 2, include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE)
+#' trim_outliers(iris, cutoff = 1,
+#'               exclude = c("Species", "Sepal.Length"), keep_scaled = FALSE)
+#' trim_outliers(iris, cutoff = 2,
+#'               include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE)
 #'
 #' # Error -- exclude and include can't both be non-NULL
-#' trim_outliers(iris, cutoff = 2, exclude = "Species", include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE)
+#' testthat::expect_error(
+#'   trim_outliers(iris, cutoff = 2, exclude = "Species",
+#'               include = c("Petal.Width", "Sepal.Length"), keep_scaled = TRUE))
 #'
 #' # Error -- exclude and include can't both be NULL
-#' trim_outliers(iris, cutoff = 2, keep_scaled = TRUE)
+#' testthat::expect_error(
+#'   trim_outliers(iris, cutoff = 2, keep_scaled = TRUE))
 
 
 trim_outliers <- function(df, cutoff = 1.96, exclude = NULL, include = NULL, keep_scaled = TRUE){

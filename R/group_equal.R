@@ -5,6 +5,7 @@
 #' @param col A numeric column. If the value here is outside the vector range, the `group` colum
 #' will be set to NA for that row.
 #' @param n_groups Number of groups to end.
+#' @param add_first_last Should the first and last element be included?
 #' @keywords group
 #' @export
 #' @examples
@@ -17,7 +18,7 @@ group_equal <- function(df, col, n_groups = 5, add_first_last = TRUE) {
   df <- df %>% tidyr::drop_na(!!col) %>%
     dplyr::ungroup() %>%
     dplyr::arrange_(.dots = col) %>%
-    dplyr::mutate(row_num = row_number())
+    dplyr::mutate(row_num = 1:nrow(.))
 
   n_total <- nrow(df)
   rnge <- range(df[[col]])

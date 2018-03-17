@@ -26,22 +26,22 @@
 
 prep_clusters <- function(df, preds, to_scale, resp) {
   df_for_clustering <- df %>%
-    select_(.dots = c(response_vars, cluster_on)) %>%
-    na.omit()
+    dplyr::select_(.dots = c(response_vars, cluster_on)) %>%
+    stats::na.omit()
 
   df_all_preds <- df_for_clustering %>%
-    select_(.dots = preds)
+    dplyr::select_(.dots = preds)
 
   df_preds_scale <- df_all_preds %>%
-    select_(.dots = to_scale) %>%
+    dplyr::select_(.dots = to_scale) %>%
     scale() %>%
-    as_tibble()
+    tibble::as_tibble()
 
-  df_preds <- bind_cols(df_preds_scale, df_all_preds[, (!names(df_all_preds) %in% to_scale)])
+  df_preds <- dplyr::bind_cols(df_preds_scale, df_all_preds[, (!names(df_all_preds) %in% to_scale)])
 
   df_outcome <- df_for_clustering %>%
-    select_(.dots = resp) %>%
-    na.omit()
+    dplyr::select_(.dots = resp) %>%
+    stats::na.omit()
 
   cluster_prep_out <- list(df_for_clustering = df_for_clustering, preds = df_preds, outcome = df_outcome)
 

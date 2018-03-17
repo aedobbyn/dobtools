@@ -10,7 +10,7 @@
 
 z_score <- function(vec) {
   vec_mean <- mean(vec, na.rm = TRUE)
-  vec_sd <- sd(vec, na.rm = TRUE)
+  vec_sd <- stats::sd(vec, na.rm = TRUE)
 
   get_score <- function(e) {
     z <- (e - vec_mean) / vec_sd

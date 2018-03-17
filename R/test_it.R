@@ -6,8 +6,7 @@
 #'
 #' @export
 #'
-#' @examples
-#'
+
 
 
 test_it <- function(f, verbose = FALSE) {

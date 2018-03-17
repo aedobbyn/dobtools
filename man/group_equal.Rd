@@ -13,6 +13,8 @@ group_equal(df, col, n_groups = 5, add_first_last = TRUE)
 will be set to NA for that row.}
 
 \item{n_groups}{Number of groups to end.}
+
+\item{add_first_last}{Should the first and last element be included?}
 }
 \description{
 Split a dataframe column into equal-sized groups.

@@ -14,6 +14,3 @@ test_it(f, verbose = FALSE)
 \description{
 Return whether an individual test passed or not
 }
-\examples{
-
-}

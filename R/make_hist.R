@@ -3,6 +3,7 @@
 #' Choose a variable from a dataframe and make a histogram out of it. Capitalizes variable names.
 #' @param d A dataframe.
 #' @param var The quoted variable name you want to see a histogram of.
+#' @param ... Other arguments
 #' @keywords plot
 #' @export
 #' @examples

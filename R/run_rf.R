@@ -1,8 +1,10 @@
 #' Run a Random Forest model
 #'
 #' Prepare and run a random forest model.
+#' @param data A dataframe
 #' @param predictor_vars A vector of predictors
 #' @param outcome_var A single outcome variable. Factor or numeric.
+#' @param n_trees Number of trees to be grown in ranger::num.trees
 #' @param prob Probability or response outcome? If TRUE, outcome variable must be a factor.
 #' @keywords rf
 #' @export
@@ -26,7 +28,7 @@ run_rf <- function(data, predictor_vars, outcome_var, n_trees = 500, prob = FALS
   # Take out columns we don't need and remove rows with missing values from the ones we do
   dat_forest <- data %>% dplyr::ungroup() %>%
     dplyr::select_(.dots = both) %>%
-    na.omit()
+    stats::na.omit()
 
   # Keep 80% for training
   forest_train <- dat_forest %>%
@@ -45,7 +47,7 @@ run_rf <- function(data, predictor_vars, outcome_var, n_trees = 500, prob = FALS
   rf_preds_sep <- paste0(predictor_vars, collapse = " + ")
 
   # Prepare the formula
-  form <- as.formula(paste0(outcome_var, " ~ ", rf_preds_sep))
+  form <- stats::as.formula(paste0(outcome_var, " ~ ", rf_preds_sep))
 
   # Run the model
   if(prob == TRUE) {

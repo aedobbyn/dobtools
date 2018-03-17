@@ -1,12 +1,14 @@
-#' Fuzzy Text Matching
+#' Fuzzy Text Matching: element
 #'
 #' Find the best match (or no match at all) to string inputs.
 #' @param e An character
 #' @param matches A vector in which to look for matches with e.
+#' @param max_dist Set maxDist to be used in stringdist::amatch
 #' @keywords match
 #' @export
 #' @examples
 #'
+#' iris <- iris %>% tibble::as_tibble()
 #' iris %>% dplyr::mutate(
 #'   foo = purrr::map_chr(as.character(Species), match_maker,
 #'                 matches = c("Virginia", "California", "Sarasota"))
@@ -16,10 +18,6 @@
 #'   foo = purrr::map_chr(as.character(Species), match_maker,
 #'                 matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
 #' )
-#'
-#' match_maker_full(as.character(iris$Species),
-#'                  matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
-#'
 
 
 match_maker <- function(e, matches, max_dist = 5) {
@@ -34,6 +32,20 @@ match_maker <- function(e, matches, max_dist = 5) {
   return(this_match)
 }
 
+
+#' Fuzzy Text Matching: vector
+#'
+#' Find the best match (or no match at all) to string inputs.
+#' @param vec A vector
+#' @param matches A vector in which to look for matches with e.
+#' @param max_dist Set maxDist to be used in stringdist::amatch
+#' @keywords match
+#' @export
+#' @examples
+#'
+#' iris <- iris %>% tibble::as_tibble()
+#' match_maker_full(as.character(iris$Species),
+#'                  matches = c("Virginia", "California", "Sarasota"), max_dist = 20)
 
 match_maker_full <- function(vec, matches, max_dist = 5) {
   out <- vector(length = length(vec))

@@ -10,6 +10,8 @@ make_hist(d, var, ...)
 \item{d}{A dataframe.}
 
 \item{var}{The quoted variable name you want to see a histogram of.}
+
+\item{...}{Other arguments}
 }
 \description{
 Choose a variable from a dataframe and make a histogram out of it. Capitalizes variable names.

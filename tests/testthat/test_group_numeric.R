@@ -1,8 +1,3 @@
-library(tidyverse)
-library(assertthat)
-library(testthat)
-library(dobtools)
-
 context("Grouping")
 
 mpg_cuts <- c(15, 20, 25, 30)

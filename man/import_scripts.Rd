@@ -13,17 +13,18 @@ import_scripts(path, pattern = "*.R", recursive = FALSE, verbose = FALSE)
 
 \item{recursive}{Grab files in subdirectories?}
 
-\item{quiet}{Should script be sourced quietly?}
+\item{verbose}{Should script be sourced quietly?}
 }
 \description{
 Source in a directory of R scripts
 }
 \examples{
 
-# Import data
+\dontrun{
 import_scripts(path = "./data", pattern = ".rda")
 
 # Import scripts
 import_scripts(path = "./data-raw", pattern = "get_droids.R", verbose = TRUE)
 import_scripts(path = "foo")   # Should fail with a warning, not an error
+}
 }

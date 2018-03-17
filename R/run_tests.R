@@ -5,13 +5,15 @@
 #' @param ext Optional extension, if does not exist in file name.
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
 #' @param beep Should we beep when done?
+#' @param beep_num If so, what beep number should we use?
 #'
 #' @export
 #'
 #' @examples
 #'
+#' \dontrun{
 #' my_test_files %>% run_tests()
-#'
+#' }
 
 
 # Run individual tests interactively or not

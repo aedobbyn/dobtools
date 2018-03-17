@@ -7,9 +7,9 @@
 grab_first_word(e, splitter = " ")
 }
 \arguments{
-\item{splitter}{The character vector that delineates where the first word ends.}
+\item{e}{A character element to split.}
 
-\item{d}{A character element to split.}
+\item{splitter}{The character vector that delineates where the first word ends.}
 }
 \description{
 Specify the end of the word using the splitter variable.

@@ -9,8 +9,8 @@
 #' @examples
 #'
 #' vec <- c("a", NA, "b")
-#' vec %>% map(replace_x, replacement = "foo")
-
+#' vec %>% purrr::map(replace_x, replacement = "foo")
+#'
 
 replace_x <- function(x, replacement = NA_character_) {
   if(is.null(x) || is.na(x)) {

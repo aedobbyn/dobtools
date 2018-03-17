@@ -8,6 +8,8 @@ style_lm(tidied_lm, add_commas = FALSE)
 }
 \arguments{
 \item{tidied_lm}{A tidied regression summary.}
+
+\item{add_commas}{Should commas be added to numbers >= 1000?}
 }
 \description{
 Capitalize and round the result of a tidied regression.

@@ -17,12 +17,15 @@ run_tests(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
 \item{line_by_line}{Do you want to step through with prompts? If non-interactive, this is not an option}
 
 \item{beep}{Should we beep when done?}
+
+\item{beep_num}{If so, what beep number should we use?}
 }
 \description{
 Run Tests
 }
 \examples{
 
+\dontrun{
 my_test_files \%>\% run_tests()
-
+}
 }

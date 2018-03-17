@@ -1,7 +1,7 @@
 #' Get Neural Net Variable Importance
 #'
 #' Given a neural net, extract the importance coefficient and percent.
-#' @param model A neural net or multinomial neural net
+#' @param nn A neural net or multinomial neural net
 #' @param keep_gini Keep the coefficient or just the percent importance?
 #' @keywords importance
 #' @export
@@ -20,7 +20,7 @@ get_nn_importance <- function(nn, keep_gini = FALSE) {
 
   importance_df <- importance_df %>%
     tibble::as_tibble() %>% dplyr::select(Overall) %>%
-    dplyr::arrange(desc(Overall)) %>%
+    dplyr::arrange(dplyr::desc(Overall)) %>%
     dplyr::bind_cols(Variable = names) %>%
     dplyr::rename(Importance = Overall) %>%
     dplyr::mutate(

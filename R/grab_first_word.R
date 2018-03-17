@@ -1,7 +1,7 @@
 #' Grab only the first word from a string.
 #'
 #' Specify the end of the word using the splitter variable.
-#' @param d A character element to split.
+#' @param e A character element to split.
 #' @param splitter The character vector that delineates where the first word ends.
 #' @keywords capitalize
 #' @export

@@ -29,11 +29,13 @@ v <- names(iris)
 t_s <- v[-which(v == "Species" | v == "Petal.Length")]
 
 clustered_iris <- do_cluster(iris, vars = v, to_scale = t_s, n_centers = 3)
-
-ggplot2::ggplot(data = clustered_iris \%>\% trim_outliers(exclude = c("cluster_assignment", "Species"))) +
-  ggplot2::geom_text(ggplot2::aes(Sepal.Width_scaled, Sepal.Length_scaled,
+\dontrun{
+ggplot(data = clustered_iris \%>\%
+                  trim_outliers(exclude = c("cluster_assignment", "Species"))) +
+  geom_text(aes(Sepal.Width_scaled, Sepal.Length_scaled,
                 colour = cluster_assignment,
                 label = Species)) +
-  ggplot2::theme_bw()
+  theme_bw()
+}
 }
 \keyword{cluster}

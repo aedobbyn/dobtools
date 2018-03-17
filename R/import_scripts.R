@@ -4,17 +4,18 @@
 #' @param path The directory path
 #' @param pattern Extension pattern
 #' @param recursive Grab files in subdirectories?
-#' @param quiet Should script be sourced quietly?
+#' @param verbose Should script be sourced quietly?
 #' @export
 #'
 #' @examples
 #'
-#' # Import data
+#' \dontrun{
 #' import_scripts(path = "./data", pattern = ".rda")
 #'
 #' # Import scripts
 #' import_scripts(path = "./data-raw", pattern = "get_droids.R", verbose = TRUE)
 #' import_scripts(path = "foo")   # Should fail with a warning, not an error
+#' }
 
 import_scripts <- function(path, pattern = "*.R", recursive = FALSE, verbose = FALSE) {
   files <- list.files(path, pattern, recursive, ignore.case = TRUE)

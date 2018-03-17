@@ -4,6 +4,7 @@
 #' Remove the Intercept term and Statistic column, capitalize all terms and names.
 #' Round all numbers to the thousandths.
 #' @param tidied_lm A tidied regression summary.
+#' @param add_commas Should commas be added to numbers >= 1000?
 #' @keywords regression
 #' @export
 #' @examples

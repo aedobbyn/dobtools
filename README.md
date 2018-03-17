@@ -1,6 +1,7 @@
 
-### Installation Instructions
+This is a personal package of utility functions -- feel free to use, but know that you do so at your own risk!
 
+### Installation Instructions
 
 `if (!require("devtools")) install.packages("devtools")`
 
@@ -11,6 +12,10 @@
 
 **What can I do with this stuff?**
 
+* Run all tests in a directory from the console, test by test (an alternative to `testthat::test_dir`)
+    * `run_tests`
+* Do fuzzy string matching
+    * `match_maker()`
 * Trim out outliers above a certain z-score
     * `trim_outliers()`
 * Capitalize names with underscores and periods in them 
@@ -28,7 +33,7 @@
 * Speak the truth
     * `nerdR()`
 
-...and some other stuff too. 
+...and some other things too. 
 
 <br>
 
