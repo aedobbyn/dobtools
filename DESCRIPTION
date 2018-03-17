@@ -33,6 +33,7 @@ Imports:
     tidyverse
 Suggests: 
     ggplot2,
+    graphics,
     knitr,
     rmarkdown,
     testthat

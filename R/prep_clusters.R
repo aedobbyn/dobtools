@@ -26,7 +26,7 @@
 
 prep_clusters <- function(df, preds, to_scale, resp) {
   df_for_clustering <- df %>%
-    dplyr::select_(.dots = c(response_vars, cluster_on)) %>%
+    dplyr::select_(.dots = c(resp, preds)) %>%
     stats::na.omit()
 
   df_all_preds <- df_for_clustering %>%
