@@ -1,6 +1,11 @@
+dobtools 
+
+***
+
 [![Build Status](https://travis-ci.org/aedobbyn/dobtools.svg?branch=master)](https://travis-ci.org/aedobbyn/dobtools)
 
-This is a personal package of utility functions -- feel free to use, but know that you do so at your own risk!
+
+<br>
 
 ### Installation Instructions
 
@@ -10,6 +15,9 @@ This is a personal package of utility functions -- feel free to use, but know th
 
 <br>
 
+### About
+
+This is a personal package of utility functions -- feel free to use, but know that you do so at your own risk!
 
 **What can I do with this stuff?**
 
