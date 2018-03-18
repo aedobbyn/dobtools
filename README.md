@@ -1,11 +1,9 @@
-dobtools 
+# dobtools 
 
 ***
 
 [![Build Status](https://travis-ci.org/aedobbyn/dobtools.svg?branch=master)](https://travis-ci.org/aedobbyn/dobtools)
 
-
-<br>
 
 ### Installation Instructions
 
