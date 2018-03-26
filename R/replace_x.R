@@ -13,7 +13,7 @@
 #'
 
 replace_x <- function(x, replacement = NA_character_) {
-  if(is.null(x) || is.na(x)) {
+  if(length(x) == 0 || is.null(x) || is.na(x)) {
     replacement
   } else {
     x
