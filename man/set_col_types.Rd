@@ -5,7 +5,7 @@
 \title{Set Column Types}
 \usage{
 set_col_types(df, fac_regex = "", num_regex = "", date_regex = "",
-  char_regex = "", ...)
+  datetm_regex = "", char_regex = "", ...)
 }
 \arguments{
 \item{df}{A datafame}
@@ -15,6 +15,8 @@ set_col_types(df, fac_regex = "", num_regex = "", date_regex = "",
 \item{num_regex}{A regex of column names to be turned numeric.}
 
 \item{date_regex}{A regex of column names to be turned into dates.}
+
+\item{datetm_regex}{A regex of column names to be turned into datetimes.}
 
 \item{char_regex}{A regex of column names to be turned into character.}
 

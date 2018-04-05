@@ -7,6 +7,7 @@
 #' @param fac_regex A regex of column names to be turned into factors.
 #' @param num_regex A regex of column names to be turned numeric.
 #' @param date_regex A regex of column names to be turned into dates.
+#' @param datetm_regex A regex of column names to be turned into datetimes.
 #' @param char_regex A regex of column names to be turned into character.
 #' @param ... Other arguments
 #' @keywords column types
@@ -26,7 +27,10 @@
 #' str(my_new_df)
 
 
-set_col_types <- function(df, fac_regex = "", num_regex = "", date_regex = "",
+set_col_types <- function(df, fac_regex = "",
+                          num_regex = "",
+                          date_regex = "",
+                          datetm_regex = "",
                           char_regex = "", ...) {
 
   for(col_name in names(df)) {
@@ -36,6 +40,9 @@ set_col_types <- function(df, fac_regex = "", num_regex = "", date_regex = "",
       # Numeric -- take out commas first
     } else if (num_regex != "" & grepl(num_regex, col_name) == TRUE) {
       df[[col_name]] <- df[[col_name]] %>% as.character() %>% stringr::str_replace_all(., ",", "") %>% as.numeric()
+      # Datetime
+    } else if (datetm_regex != "" & grepl(datetm_regex, col_name) == TRUE) {
+      df[[col_name]] <- lubridate::as_datetime(df[[col_name]])
       # Date
     } else if (date_regex != "" & grepl(date_regex, col_name) == TRUE) {
       df[[col_name]] <- lubridate::as_date(df[[col_name]])
