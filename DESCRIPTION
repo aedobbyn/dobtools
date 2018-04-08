@@ -19,6 +19,7 @@ Imports:
     dplyr,
     glue,
     Hmisc, 
+    janeaustenr,
     lubridate,
     magrittr,
     nnet,
