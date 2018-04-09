@@ -21,7 +21,8 @@
 #' tbl %>% trim_content(last_char = 5, sample_some = 7)
 
 
-trim_content <- function(df, col = content, last_char = 50, sample_some = 3) {
+trim_content <- function(df, col = content,
+                         last_char = 50, sample_some = 3) {
 
   assertthat::assert_that(deparse(substitute(col)) %in% names(df),
                           msg = "col supplied must be present in df")
@@ -37,7 +38,8 @@ trim_content <- function(df, col = content, last_char = 50, sample_some = 3) {
 
   out <- df %>%
     dplyr::rowwise() %>%
-    dplyr::mutate_at(dplyr::vars(!!q_col), substr, 1, last_char)
+    dplyr::mutate(
+      !!rlang::quo_name(q_col) := substr(!!q_col, 1, last_char))
 
   return(out)
 }
