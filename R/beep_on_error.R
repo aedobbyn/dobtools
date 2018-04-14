@@ -1,4 +1,4 @@
-#' Trim content
+#' Beep on error
 #'
 #' beepr::beep() only on error
 #' @param inp Expression to be evaluated. Cannot be piped (yet)
