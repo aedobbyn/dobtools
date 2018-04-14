@@ -3,6 +3,7 @@
 export("%>%")
 export(analyze_rf)
 export(append_dollar_sign)
+export(beep_on_error)
 export(cap_a_word)
 export(cap_a_word_partial)
 export(cap_df)
