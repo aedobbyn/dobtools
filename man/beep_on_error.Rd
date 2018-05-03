@@ -2,7 +2,7 @@
 % Please edit documentation in R/beep_on_error.R
 \name{beep_on_error}
 \alias{beep_on_error}
-\title{Trim content}
+\title{Beep on error}
 \usage{
 beep_on_error(inp, error_beep = 9)
 }
