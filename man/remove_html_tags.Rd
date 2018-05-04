@@ -13,10 +13,10 @@ remove_html_tags(h_str)
 Cleaned string
 }
 \description{
-Take a string and remove HTML tags from hit. Does not remove \code{&amp}s or newlines
+Take a string and remove HTML tags from hit.
 }
 \examples{
 
-to_clean <- "<li> some <b>bullet</b> </li>"
+to_clean <- "<li> some \\n <b>bullet</b> </li>"
 remove_html_tags(to_clean)
 }
