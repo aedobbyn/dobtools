@@ -11,7 +11,7 @@
 #' rep(NA, 3) %>% not_all_na()
 #' c(1, 2, NA) %>% not_all_na()
 #
-# starwars %>%
+# dplyr::starwars %>%
 #   dplyr::select_if(not_all_na)
 
 not_all_na <- function(x) !all(is.na(x))

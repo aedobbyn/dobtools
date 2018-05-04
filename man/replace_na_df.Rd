@@ -16,6 +16,6 @@ Replace all NA values in a dataframe
 }
 \examples{
 
-starwars \%>\% replace_na_df()
+dplyr::starwars \%>\% replace_na_df()
 
 }

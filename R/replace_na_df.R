@@ -8,7 +8,7 @@
 #'
 #' @examples
 #'
-#' starwars %>% replace_na_df()
+#' dplyr::starwars %>% replace_na_df()
 #'
 
 replace_na_df <- function(df, replacement = "") {
