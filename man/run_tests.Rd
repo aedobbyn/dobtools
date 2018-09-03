@@ -4,8 +4,8 @@
 \alias{run_tests}
 \title{Run Tests}
 \usage{
-run_tests(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
-  beep = TRUE, beep_num = 1)
+run_tests(dir = NULL, files = NULL, ext = NULL,
+  line_by_line = TRUE, beep = TRUE, beep_num = 1)
 }
 \arguments{
 \item{dir}{A directory in which your test files live}

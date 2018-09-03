@@ -4,7 +4,8 @@
 \alias{import_scripts}
 \title{Import Scripts}
 \usage{
-import_scripts(path, pattern = "*.R", recursive = FALSE, verbose = FALSE)
+import_scripts(path, pattern = "*.R", recursive = FALSE,
+  verbose = FALSE)
 }
 \arguments{
 \item{path}{The directory path}

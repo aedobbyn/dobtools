@@ -4,7 +4,8 @@
 \alias{style_numeric}
 \title{Style Numeric}
 \usage{
-style_numeric(df, digits = 3, add_commas = FALSE, dont_add_commas = NULL)
+style_numeric(df, digits = 3, add_commas = FALSE,
+  dont_add_commas = NULL)
 }
 \arguments{
 \item{df}{A dataframe.}

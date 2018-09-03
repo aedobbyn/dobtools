@@ -4,8 +4,8 @@
 \alias{do_cluster}
 \title{K-Means Cluster}
 \usage{
-do_cluster(df, vars, to_scale, n_centers = 5, algorithm = "Hartigan-Wong",
-  trace = FALSE)
+do_cluster(df, vars, to_scale, n_centers = 5,
+  algorithm = "Hartigan-Wong", trace = FALSE)
 }
 \arguments{
 \item{df}{A dataframe}

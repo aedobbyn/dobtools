@@ -4,7 +4,8 @@
 \alias{cap_a_word}
 \title{Cap a Word}
 \usage{
-cap_a_word(phrase, to_cap = c("id", "Id"), collapse = " ", no_sep = FALSE)
+cap_a_word(phrase, to_cap = c("id", "Id"), collapse = " ",
+  no_sep = FALSE)
 }
 \arguments{
 \item{phrase}{A single element or phrase containing one or more of the elements in `to_cap`}
