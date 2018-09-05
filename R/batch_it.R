@@ -2,11 +2,11 @@
 #' Execute a function in batches
 #'
 #' In the vector method, attempts to apply fun to inp that result in an error will return NAs for that batch.
-#' However, in the dataframe method, these will be returned as NULLs and not applied to the output.
+#' However, in the dataframe method, these will be returned as \code{NULL}s and not applied to the output.
 #'
 #' @param inp (vector, dataframe) A vector or dataframe of inputs.
-#' @param fun (function) A function to apply to the input.
-#' @param fun_2 (function) Optional secondary function to apply to the result of fun(inp), conditional upon its successful execution.
+#' @param fun (function) A function to apply to the input. This is what is returned if \code{grow_full_output} is true.
+#' @param fun_2 (function) Optional secondary function to apply to the result of \code{fun(inp)}, conditional upon its successful execution. Good for e.g. sending results over a network or inserting them into a database. The result of \code{fun_2(fun(inp))} is not returned.
 #' @param n_batches (integer) Number of batches to split inp into.
 #' @param grow_full_output (boolean) Should the result of each batch be combined with the ones before it and the whole result returned at the end?
 #' @param verbose (boolean) Should progress be messaged?
@@ -36,6 +36,13 @@
 #' batch_it(mtcars, add_one_tbl, n_batches = 5)
 #'
 
+batch_it <- function(inp, fun, fun_2 = NULL,
+                     n_batches, grow_full_output = TRUE,
+                     verbose = TRUE, ...) {
+  UseMethod("batch_it", inp)
+}
+
+#' @export
 batch_it.default <- function(inp, fun, fun_2 = NULL,
                              n_batches, grow_full_output = TRUE,
                              verbose = TRUE, ...) {
@@ -91,7 +98,7 @@ batch_it.default <- function(inp, fun, fun_2 = NULL,
   out
 }
 
-
+#' @export
 batch_it.data.frame <- function(inp, fun, fun_2 = NULL,
                          n_batches, grow_full_output = TRUE,
                          verbose = TRUE, ...) {
@@ -147,9 +154,3 @@ batch_it.data.frame <- function(inp, fun, fun_2 = NULL,
   out
 }
 
-
-batch_it <- function(inp, fun, fun_2 = NULL,
-                     n_batches, grow_full_output = TRUE,
-                     verbose = TRUE, ...) {
-  UseMethod("batch_it", inp)
-}

@@ -1,0 +1,17 @@
+globalVariables(c(
+    ".",
+    ":=",
+    "billed",
+    "Billed",
+    "Billed?",
+    "content",
+    "Importance",
+    "num",
+    "Overall",
+    "points",
+    "Pr...z..",
+    "row_num",
+    ".rownames",
+    "Term",
+    "word"
+))
