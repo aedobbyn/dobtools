@@ -21,7 +21,7 @@ This is a personal package of utility functions -- feel free to use, but know th
 
 * Wrap up a function or two into batch processing jobs
     * `batch_it`
-* Run all tests in a directory from the console, test by test (an alternative to `testthat::test_dir`)
+* Run all tests in a directory in the global environment, from the console, test by test (an alternative to `testthat::test_dir`)
     * `run_tests`
 * Do fuzzy string matching
     * `match_maker()`

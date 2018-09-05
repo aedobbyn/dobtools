@@ -7,8 +7,6 @@
 #' @export
 #'
 
-
-
 test_it <- function(f, verbose = FALSE) {
   if (verbose == FALSE) {
     result <- suppressMessages(suppressWarnings(try(source(f), silent = TRUE)))
@@ -18,6 +16,7 @@ test_it <- function(f, verbose = FALSE) {
 
   if (inherits(result, "try-error")) {
     message(paste0(" --- ", f, " FAILED --- "))
+    message(result)
   } else {
     message(paste0(" --- ", f, " PASSED --- "))
   }
