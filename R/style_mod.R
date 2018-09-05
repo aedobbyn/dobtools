@@ -14,11 +14,15 @@
 
 style_mod <- function(m, add_commas = FALSE) {
   if(grepl("glm", summary(m)$call[1])) {
-    summary(m)$coefficients %>% broom::tidy() %>%
-      dplyr::rename(term = `.rownames`,
-             `p Value` = `Pr...z..`) %>% style_lm(add_commas = add_commas)  # Term renamed Variable in style_lm
+    m %>% summary() %>% purrr::pluck(coefficients) %>%
+      broom::fix_data_frame() %>%
+      dplyr::rename(`p Value` = `Pr...z..`) %>%
+      style_lm(add_commas = add_commas)  # Term renamed Variable in style_lm
   } else {
-    summary(m) %>% broom::tidy() %>% style_lm(add_commas = add_commas)
+    m %>% summary() %>% purrr::pluck(coefficients) %>%
+      broom::fix_data_frame() %>%
+      dplyr::rename(`p Value` = `Pr...t..`) %>%
+      style_lm(add_commas = add_commas)
   }
 }
 

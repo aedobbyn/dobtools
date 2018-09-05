@@ -8,7 +8,10 @@
 #' @keywords regression
 #' @export
 #' @examples
-#' iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) %>% summary() %>% broom::tidy()
+#' iris_lm <- lm(Sepal.Width ~ Sepal.Length, data = iris) %>%
+#'   summary() %>%
+#'   purrr::pluck("coefficients") %>%
+#'   broom::fix_data_frame()
 #' iris_lm[2, 3] <- 1234567
 #' style_lm(iris_lm, add_commas = TRUE)
 
