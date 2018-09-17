@@ -6,6 +6,7 @@
 #' @param line_by_line Do you want to step through with prompts? If non-interactive, this is not an option
 #' @param beep Should we beep when done?
 #' @param beep_num If so, what beep number should we use?
+#' @param ... Args to be passed to \code{\link{test_it}}
 #'
 #' @export
 #'
@@ -18,7 +19,7 @@
 
 # Run individual tests interactively or not
 run_tests <- function(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
-                      beep = TRUE, beep_num = 1) {
+                      beep = TRUE, beep_num = 1, ...) {
   files <- stringr::str_c(dir, "/", files, ext)
 
   if (line_by_line == FALSE ) {  # | interactive() == FALSE
@@ -31,15 +32,15 @@ run_tests <- function(dir = NULL, files = NULL, ext = NULL, line_by_line = TRUE,
     while (i <= length(files)) {
       answer <- readline(paste0("Should we test ", files[i], " ? \n y/n:       "))
 
-      if (answer == "y" | answer == "Y") {
-        test_it(files[i]) %>% beepr::beep(beep_num)
+      if (answer %in% c("y", "Y")) {
+        test_it(files[i], beep = beep, beep_num = beep_num, ...)
         i <- i + 1
 
-      } else if (answer == "n" | answer == "N") {
+      } else if (answer %in% c("n", "N")) {
         message(paste0("Ok; not testing ", files[i], "."))
         i <- i + 1
 
-      } else if (answer == "q" | answer == "Q") {
+      } else if (answer %in% c("q", "Q")) {
         message("Quitting tests.")
         break
 

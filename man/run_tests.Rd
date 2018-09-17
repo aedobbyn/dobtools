@@ -5,7 +5,7 @@
 \title{Run Tests}
 \usage{
 run_tests(dir = NULL, files = NULL, ext = NULL,
-  line_by_line = TRUE, beep = TRUE, beep_num = 1)
+  line_by_line = TRUE, beep = TRUE, beep_num = 1, ...)
 }
 \arguments{
 \item{dir}{A directory in which your test files live}
@@ -19,6 +19,8 @@ run_tests(dir = NULL, files = NULL, ext = NULL,
 \item{beep}{Should we beep when done?}
 
 \item{beep_num}{If so, what beep number should we use?}
+
+\item{...}{Args to be passed to \code{\link{test_it}}}
 }
 \description{
 Run Tests

@@ -4,10 +4,14 @@
 \alias{test_it}
 \title{Test It}
 \usage{
-test_it(f, verbose = FALSE)
+test_it(f, beep = TRUE, beep_num = 1, verbose = FALSE)
 }
 \arguments{
 \item{f}{The file}
+
+\item{beep}{Should we beep when done?}
+
+\item{beep_num}{If so, what beep number should we use?}
 
 \item{verbose}{Should messages and warnings be suppressed}
 }
