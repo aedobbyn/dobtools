@@ -18,10 +18,10 @@ test_it <- function(f, beep = TRUE, beep_num = 1, verbose = FALSE) {
 
   if (inherits(result, "try-error")) {
     message(paste0(" --- ", f, " FAILED --- "))
-    if (beep) beepr::beep(9)
+    if (beep && get_os() != "linux") beepr::beep(9)
     message(result)
   } else {
     message(paste0(" --- ", f, " PASSED --- "))
-    if (beep) beepr::beep(beep_num)
+    if (beep && get_os() != "linux") beepr::beep(beep_num)
   }
 }
