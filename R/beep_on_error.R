@@ -7,8 +7,10 @@
 #' @export
 #' @examples
 #'
+#' \dontrun{
 #' beep_on_error(log("foo"))   # Beeps on error
 #' beep_on_error(log(3))      # No error, no beep
+#' }
 
 beep_on_error <- function(inp, error_beep = 9) {
   q_inp <- substitute(inp)

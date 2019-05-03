@@ -21,7 +21,7 @@ For easy kable-izing, take a sample of a dataframe and trim a single column (usu
 \examples{
 
 tbl <- janeaustenr::northangerabbey[100:109] \%>\%
-  tibble::as_tibble() \%>\%
+  tibble::enframe() \%>\%
   dplyr::rename(
     content = value
   ) \%>\%

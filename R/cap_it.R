@@ -13,7 +13,8 @@
 #'
 #' pre_cap_df <- list("another all" = c("blah_blah", "blah"),
 #'                    "lowercase.dataframe" = c(1, 4),
-#'                    "to.cap" = c("BLAMO", "blam.o")) %>% data.frame()
+#'                    "to.cap" = c("BLAMO", "blam.o")) %>%
+#'   tibble::as_tibble()
 #'
 #'
 #' first_col <- pre_cap_df[[1]] %>% purrr::map_chr(cap_it)
@@ -21,8 +22,9 @@
 #'   purrr::map_chr(cap_it) # Numeric column coerced from numeric to character
 #'
 #' # Capitalize all character elements of dataframe and column names
-#' capped_df <- pre_cap_df %>% purrr::map(cap_it) %>% data.frame()  # Here, not coerced
-#' names(capped_df) <- names(pre_cap_df) %>% purrr::map(cap_it) %>% purrr::as_vector()
+#' capped_df <- pre_cap_df
+#' names(capped_df) <- names(pre_cap_df) %>% purrr::map(cap_it) %>%
+#'     purrr::as_vector()
 #' names(capped_df)
 #'
 

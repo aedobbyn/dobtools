@@ -10,7 +10,7 @@
 #' @examples
 #'
 #' tbl <- janeaustenr::northangerabbey[100:109] %>%
-#'   tibble::as_tibble() %>%
+#'   tibble::enframe() %>%
 #'   dplyr::rename(
 #'     content = value
 #'   ) %>%

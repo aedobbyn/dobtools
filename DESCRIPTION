@@ -16,6 +16,7 @@ Imports:
     beepr,
     broom,
     caret,
+    DBI,
     dplyr,
     glue,
     Hmisc, 
