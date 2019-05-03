@@ -6,6 +6,9 @@
 \usage{
 get_os()
 }
+\value{
+Name of current operating system.
+}
 \description{
 Get current operating system
 }

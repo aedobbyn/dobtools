@@ -1,7 +1,7 @@
 
 #' Get current operating system
 #'
-#' @return
+#' @return Name of current operating system.
 #' @export
 #'
 #' @examples
